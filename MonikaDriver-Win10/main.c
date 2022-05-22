@@ -20,7 +20,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DrvObj, PUNICODE_STRING RegPath)
 	
 	if (RegPath != 0)
 	{
-		DbgPrint("The RegPath is %wz\n", RegPath);
+		DbgPrint("The RegPath is %wZ\n", RegPath);
 	}
 
 	return STATUS_SUCCESS;
