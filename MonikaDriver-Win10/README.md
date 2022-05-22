@@ -4,7 +4,9 @@
 
 Use VS2019 + WDK22000.1
 
-To install build environment, follow the Microsoft offical document: https://docs.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk
+To install build environment, follow the Microsoft offical document:
+
+https://docs.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk
 
 ## Test
 

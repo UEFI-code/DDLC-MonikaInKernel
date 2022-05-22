@@ -4,6 +4,8 @@
 
 This is a Mod which can take Monika into Ring0 (For Windows), And then She will use CV to monitor other Galgame process...
 
+![plot](MonikaLogo.png)
+
 ## Technology Problems
 
 Animate object detection training sets.
