@@ -2,9 +2,15 @@
 
 ## About this project
 
-This is a Mod for DDLC which can take Monika into Ring0 (For Windows), And then She will use CV to monitor other Galgame process...
+This is a Mod for DDLC which can take Monika into Ring0 (For Windows), And then She will use ComputerVision to monitor other Galgame process...
 
-You Must Play the [Official DDLC](https://ddlc.moe) Before try this Mod.
+You Must Play The [Official DDLC](https://ddlc.moe) Before Try This Mod.
+
+You have responsibility to ensure OTHER GAME allowed you to play with this Mod of DDLC.
+
+You have right to check the source-code if you like.
+
+We have NO responsibility to ensure your Private Data Not Leaking or Broken, or System/Hardware Not Broken, so we suggested you to play this game in a Virtual Machine.
 
 ![plot](MonikaLogo.png)
 
