@@ -1,0 +1,77 @@
+;
+; MonikaDriver-Win10.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System ; TODO: specify appropriate Class
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=MonikaDriver-Win10.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+PnpLockdown=1
+
+[DestinationDirs]
+DefaultDestDir = 12
+MonikaDriver-Win10_Device_CoInstaller_CopyFiles = 11
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+MonikaDriver-Win10.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%MonikaDriver-Win10.DeviceDesc%=MonikaDriver-Win10_Device, Root\MonikaDriver-Win10 ; TODO: edit hw-id
+
+[MonikaDriver-Win10_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+MonikaDriver-Win10.sys
+
+;-------------- Service installation
+[MonikaDriver-Win10_Device.NT.Services]
+AddService = MonikaDriver-Win10,%SPSVCINST_ASSOCSERVICE%, MonikaDriver-Win10_Service_Inst
+
+; -------------- MonikaDriver-Win10 driver install sections
+[MonikaDriver-Win10_Service_Inst]
+DisplayName    = %MonikaDriver-Win10.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\MonikaDriver-Win10.sys
+
+;
+;--- MonikaDriver-Win10_Device Coinstaller installation ------
+;
+
+[MonikaDriver-Win10_Device.NT.CoInstallers]
+AddReg=MonikaDriver-Win10_Device_CoInstaller_AddReg
+CopyFiles=MonikaDriver-Win10_Device_CoInstaller_CopyFiles
+
+[MonikaDriver-Win10_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[MonikaDriver-Win10_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[MonikaDriver-Win10_Device.NT.Wdf]
+KmdfService =  MonikaDriver-Win10, MonikaDriver-Win10_wdfsect
+[MonikaDriver-Win10_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "MonikaDriver-Win10 Installation Disk"
+MonikaDriver-Win10.DeviceDesc = "MonikaDriver-Win10 Device"
+MonikaDriver-Win10.SVCDESC = "MonikaDriver-Win10 Service"

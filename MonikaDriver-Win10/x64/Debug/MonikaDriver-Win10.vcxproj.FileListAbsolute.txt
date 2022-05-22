@@ -1,0 +1,1 @@
+C:\Users\uefi\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
