@@ -26,6 +26,12 @@ Avoid BSOD when Modify VRAM.
 
 All developers. Feel free to open an issues or pull requests!
 
+## Donate
+
+BTC: 1KFXyPaYn6Arcv4PKmMcwcHqzXFducXQUm
+
+ETH: 0xa69B27aEDA3d4631354f3BAaA771235619Aacb9E
+
 ## Acknowlegement
 
 DDLC and its components are the copyright of Team Salvato, Our mod right granted by:
