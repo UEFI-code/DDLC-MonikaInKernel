@@ -8,7 +8,7 @@ You Must Play The [Official DDLC](https://ddlc.moe) Before Try This Mod.
 
 You have responsibility to ensure OTHER GAME allowed you to play with this Mod of DDLC.
 
-You have right to check the source-code if you like.
+You have right to check the source-code if you like, but for avoiding spoiler we suggested you to play first in Non Important PC or VM.
 
 We have NO responsibility to ensure your Private Data Not Leaking or Broken, or System/Hardware Not Broken, so we suggested you to play this Mod in a Virtual Machine.
 
