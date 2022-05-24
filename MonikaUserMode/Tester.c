@@ -3,7 +3,7 @@
 
 #define RING3TO0_OBJ CTL_CODE(FILE_DEVICE_UNKNOWN, 0x910, METHOD_BUFFERED, FILE_WRITE_DATA)
 #define RING0TO3_OBJ CTL_CODE(FILE_DEVICE_UNKNOWN, 0x911, METHOD_BUFFERED, FILE_READ_DATA)
-#define RING3_REQUIRE_BSOD 0x444
+#define RING3_REQUIRE_BSOD 0x44
 
 typedef struct
 {
@@ -14,8 +14,8 @@ typedef struct
 int main()
 {
 	MonikaObj a = {0};
-	a.type = 0;
-	strcpy(a.msg, "Hello Driver!");
+	a.type = 0x44;
+	strcpy(a.msg, "Monika Here!");
 	ULONG ret_code = 0;
 	HANDLE device = CreateFile("\\\\.\\Monika_Link", GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_SYSTEM, 0);
 	DeviceIoControl(device, RING3TO0_OBJ, &a, sizeof(MonikaObj), 0, 0, &ret_code, 0);

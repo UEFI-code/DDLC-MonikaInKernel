@@ -8,7 +8,7 @@ Class=System ; TODO: specify appropriate Class
 ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
 Provider=%ManufacturerName%
 CatalogFile=MonikaDriver-Win10.cat
-DriverVer = 05/24/2022,8.19.46.371
+DriverVer = 05/24/2022,11.1.57.413
 PnpLockdown=1
 
 [DestinationDirs]

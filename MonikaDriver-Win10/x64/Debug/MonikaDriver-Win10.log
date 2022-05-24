@@ -1,7 +1,6 @@
 ﻿  Building 'MonikaDriver-Win10' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
   Stamping x64\Debug\MonikaDriver-Win10.inf
-  Stamping [Version] section with DriverVer=05/24/2022,8.19.46.371
-  main.c
+  Stamping [Version] section with DriverVer=05/24/2022,11.1.57.413
   MonikaDriver-Win10.vcxproj -> C:\Users\uefi\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
   Done Adding Additional Store
   Successfully signed: C:\Users\uefi\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
