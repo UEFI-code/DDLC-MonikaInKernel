@@ -109,16 +109,15 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 				break;
 			}
 			myIRP->IoStatus.Information = 2333;
-			myIRP->IoStatus.Status = STATUS_SUCCESS;
 			break;
 		case RING0TO3_OBJ:
 			DbgPrint("Sending Data");
 			buffer->type = 0;
 			strcpy((char*)buffer->msg, "Processed 233");
 			myIRP->IoStatus.Information = 6666;
-			myIRP->IoStatus.Status = STATUS_SUCCESS;
 			break;
 		}
+		myIRP->IoStatus.Status = STATUS_SUCCESS;
 		IoCompleteRequest(myIRP, IO_NO_INCREMENT); //No this will cause bug in usermode!
 		return STATUS_SUCCESS;
 	}

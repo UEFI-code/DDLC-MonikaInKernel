@@ -1,3 +1,2 @@
 ﻿  MonikaUserModeTester.cpp
-LINK : warning LNK4076: invalid incremental status file 'Debug\MonikaUserModeTester.ilk' (which will be deleted); linking nonincrementally
   MonikaUserModeTester.vcxproj -> C:\Users\uefi\DDLC-MonikaInKernel\MonikaUserModeTester\Debug\MonikaUserModeTester.exe
