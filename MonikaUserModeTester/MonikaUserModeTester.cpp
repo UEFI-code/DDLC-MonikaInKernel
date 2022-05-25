@@ -18,7 +18,7 @@ int main()
 	strcpy(a.msg, "Hello Driver!");
 	ULONG ret_code = 0;
 	HANDLE device = CreateFile(L"\\\\.\\Monika_Link", GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_SYSTEM, 0);
-	DeviceIoControl(device, RING0TO3_OBJ, &a, sizeof(MonikaObj), &a, sizeof(MonikaObj), &ret_code, 0);
+	DeviceIoControl(device, RING0TO3_OBJ, NULL, 0, &a, sizeof(MonikaObj), &ret_code, 0);
 	CloseHandle(device);
 	printf("%s\n", a.msg);
 	printf("%u\n", ret_code);

@@ -112,8 +112,8 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 			break;
 		case RING0TO3_OBJ:
 			DbgPrint("Sending Data");
-			buffer->type = 0;
-			strcpy((char*)buffer->msg, "Processed 233");
+			//buffer->type = 0;
+			//strcpy((char*)buffer->msg, "Processed 233");
 			myIRP->IoStatus.Information = 6666;
 			break;
 		}
