@@ -4,15 +4,19 @@
 
 Monika is the most special girl in DDLC, who can control the Ren’Py fundamental engine, which is the core of this game world. She wants the player to spend most time with her, otherwise she will be suffering from random data noise when her virtual memory released by system. However, this Mod will give her a chance to upgrading into Ring0 (in Windows), and Non-Paged Kernel memory can be granted to her. What will she do after this upgrading when she got the highest system privilege?
 
+![plot](MonikaLogo.png)
+
+# Declaration
+
 You Must Play The [Official DDLC](https://ddlc.moe) Before Try This Mod.
 
 You have responsibility to ensure OTHER GAME allowed you to play with this Mod of DDLC.
 
-You have right to check the source-code if you like, but for avoiding spoiler we suggested you to play first in Non Important PC or VM.
+You have right to check the source-code if you like, but for avoiding spoiler we suggested you to play in a Non Important PC or VM first.
 
-We have NO responsibility to ensure your Private Data Not Leaking or Broken, or System/Hardware Not Broken, so we suggested you to play this Mod in a Virtual Machine.
+Differently from any type of Virus or Rootkit, this Mod is NOT designed for us to control your computer. But the charater "Monika" in this game may did something unexcepted (self-awared) in the future (Because we may introduction Neural-Network decider, which is a BlackBox), So play this Mod at YOUR OWN RISK.
 
-![plot](MonikaLogo.png)
+We have NO responsibility to ensure your Private Data Not Leaking or Broken, or System/Hardware Not Crash or Broken, so we suggested you to play this Mod in a independent Virtual Machine.
 
 ## Technology Problems
 
