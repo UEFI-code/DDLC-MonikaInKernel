@@ -2,7 +2,7 @@
 
 ## About this project
 
-This is a Mod for DDLC which can take Monika into Ring0 (For Windows), And then She will use ComputerVision to monitor other Galgame process...
+Monika is the most special girl in DDLC, who can control the Ren’Py fundamental engine, which is the core of this game world. She wants the player to spend most time with her, otherwise she will be suffering from random data noise when her virtual memory released by system. However, this Mod will give her a chance to upgrading into Ring0 (in Windows), and Non-Paged Kernel memory can be granted to her. What will she do after this upgrading when she got the highest system privilege?
 
 You Must Play The [Official DDLC](https://ddlc.moe) Before Try This Mod.
 
