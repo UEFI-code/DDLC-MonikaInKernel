@@ -1,34 +1,8 @@
 #include <ntddk.h>
 #include <wdmsec.h>
 #include <stdio.h>
-
-UNICODE_STRING DeviceName = RTL_CONSTANT_STRING(L"\\Device\\Monika_Core");
-UNICODE_STRING sddl = RTL_CONSTANT_STRING(L"D:P(A;;GA;;;WD)");
-UNICODE_STRING DeviceGUID = RTL_CONSTANT_STRING(L"23333333-2333-2333-2333-233333333333");
-PDEVICE_OBJECT g_DeviceObj = 0;
-UNICODE_STRING DeviceSymbolicLinkName = RTL_CONSTANT_STRING(L"\\??\\Monika_Link");
-
-#define RING3TO0_OBJ CTL_CODE(FILE_DEVICE_UNKNOWN, 0x910, METHOD_BUFFERED, FILE_WRITE_DATA)
-#define RING0TO3_OBJ CTL_CODE(FILE_DEVICE_UNKNOWN, 0x911, METHOD_BUFFERED, FILE_READ_DATA)
-#define RING3_REQUIRE_BSOD 0x44
-
-typedef struct
-{
-	UINT8 type;
-	char msg[128];
-} MonikaObj;
-
-char* BSOD_MSG = 0;
-PKBUGCHECK_CALLBACK_RECORD g_BSOD = 0;
-NTSYSAPI VOID NTAPI HalDisplayString(PCHAR String);
-VOID InbvAcquireDisplayOwnership(VOID);
-VOID InbvResetDisplay(VOID);
-INT InbvSetTextColor(INT color); //IRBG
-VOID InbvDisplayString(PSZ text);
-VOID InbvSolidColorFill(ULONG left, ULONG top, ULONG width, ULONG height, ULONG color);
-VOID InbvSetScrollRegion(ULONG left, ULONG top, ULONG width, ULONG height);
-VOID InbvInstallDisplayStringFilter(ULONG b);
-VOID InbvEnableDisplayString(ULONG b);
+#include "MonikaDrv.h"
+#include "MonikaBSOD.c"
 
 VOID DriverUnload(PDRIVER_OBJECT DrvObj)
 {
@@ -42,26 +16,6 @@ VOID DriverUnload(PDRIVER_OBJECT DrvObj)
 		}
 	}
 
-	return;
-}
-
-VOID MyBugCheckCallback(PVOID  Buffer, ULONG  Length)
-{
-	/* Not Work on Windows Server 2019
-	InbvAcquireDisplayOwnership(); //Takes control of screen
-	InbvResetDisplay(); //Clears screen
-	InbvSolidColorFill(0, 0, 639, 479, 4); //Colors the screen blue
-	InbvSetTextColor(15); //Sets text color to white
-	InbvInstallDisplayStringFilter(0); //Not sure but nessecary
-	InbvEnableDisplayString(1); //Enables printing text to screen
-	InbvSetScrollRegion(0, 0, 639, 475); //Not sure, would recommend keeping
-	HalDisplayString(BSOD_MSG);
-	*/
-	UINT8* vram = (UINT8 *)0xa0000;
-	for (int i = 0; i < 0xffff; i++)
-	{
-		vram[i] = 256 ^ (i % 256);
-	}
 	return;
 }
 
@@ -103,7 +57,7 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 				{
 					g_BSOD = (PKBUGCHECK_CALLBACK_RECORD)ExAllocatePoolWithTag(NonPagedPool, 512, 0);
 					KeInitializeCallbackRecord(g_BSOD);
-					KeRegisterBugCheckCallback(g_BSOD, MyBugCheckCallback, NULL, 0, 0);
+					KeRegisterBugCheckCallback(g_BSOD, MonikaBSODCallback, NULL, 0, 0);
 					KeBugCheck(0x23333333);
 				}
 				break;
