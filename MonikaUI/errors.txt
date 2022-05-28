@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 38: expected statement.
+    m $txt
+      ^
+
+Ren'Py Version: Ren'Py 7.4.11.2266
+Sat May 28 06:26:23 2022
