@@ -13,6 +13,9 @@ typedef struct
 
 int main()
 {
+	FILE *fp = fopen("a.txt", "rwb");
+	fseek(fp, -4, SEEK_END);
+	
 	MonikaObj a = {0};
 	a.type = 0x44;
 	strcpy(a.msg, "Monika Here!");

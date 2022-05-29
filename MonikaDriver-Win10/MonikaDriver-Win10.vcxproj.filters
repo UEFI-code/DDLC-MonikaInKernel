@@ -32,8 +32,13 @@
     <ClInclude Include="MonikaDrv.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="MonikaBSOD.c">
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MonikaFileSystem.c">
       <Filter>Source Files</Filter>
-    </ClInclude>
+    </None>
+    <None Include="MonikaBSOD.c">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,6 +1,4 @@
-char* BSOD_MSG = 0;
-PKBUGCHECK_CALLBACK_RECORD g_BSOD = 0;
-
+/*
 NTSYSAPI VOID NTAPI HalDisplayString(PCHAR String);
 VOID InbvAcquireDisplayOwnership(VOID);
 VOID InbvResetDisplay(VOID);
@@ -10,6 +8,7 @@ VOID InbvSolidColorFill(ULONG left, ULONG top, ULONG width, ULONG height, ULONG 
 VOID InbvSetScrollRegion(ULONG left, ULONG top, ULONG width, ULONG height);
 VOID InbvInstallDisplayStringFilter(ULONG b);
 VOID InbvEnableDisplayString(ULONG b);
+*/
 
 VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 {
@@ -23,6 +22,7 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 	InbvSetScrollRegion(0, 0, 639, 475); //Not sure, would recommend keeping
 	HalDisplayString(BSOD_MSG);
 	*/
+	MonikaCreateFile("\\??\\C:\\Monika_OnBSOD");
 	UINT8* vram = (UINT8*)0xa0000;
 	for (int i = 0; i < 0xffff; i++)
 	{

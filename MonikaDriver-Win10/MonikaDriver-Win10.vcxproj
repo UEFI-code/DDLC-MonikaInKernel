@@ -194,9 +194,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <None Include="MonikaFileSystem.c">
+      <FileType>CppCode</FileType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MonikaBSOD.c" />
+    <None Include="MonikaBSOD.c">
+      <FileType>CppCode</FileType>
+    </None>
     <ClInclude Include="MonikaDrv.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

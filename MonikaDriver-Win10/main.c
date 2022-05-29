@@ -2,6 +2,7 @@
 #include <wdmsec.h>
 #include <stdio.h>
 #include "MonikaDrv.h"
+#include "MonikaFileSystem.c"
 #include "MonikaBSOD.c"
 
 VOID DriverUnload(PDRIVER_OBJECT DrvObj)
@@ -47,8 +48,14 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 		case RING3TO0_OBJ:
 			switch (buffer->type)
 			{
-			case 0:
+			case RING3_REQUIRE_TESTSTR:
 				DbgPrint("Recieved: %s", buffer->msg);
+				break;
+			case RING3_REQUIRE_TESTFILE_CREATE:
+				MonikaCreateFile("\\??\\C:\\Monika_TestCreate");
+				break;
+			case RING3_REQUIRE_TESTFILE_DELETE:
+				MonikaDeleteFile("\\??\\C:\\Monika_TestCreate");
 				break;
 			case RING3_REQUIRE_BSOD:
 				DbgPrint("Wow you like BSOD!?");
@@ -92,7 +99,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DrvObj, PUNICODE_STRING RegPath)
 	{
 		DbgPrint("On Entry DrvObj Valid 233!");
 		DrvObj->DriverUnload = DriverUnload;
-		status = IoCreateDeviceSecure(DrvObj, 0, &DeviceName, FILE_DEVICE_UNKNOWN, FILE_DEVICE_SECURE_OPEN, TRUE, &sddl, (LPCGUID)&DeviceGUID, &g_DeviceObj);
+		status = IoCreateDeviceSecure(DrvObj, 0, &DeviceName, FILE_DEVICE_UNKNOWN, FILE_DEVICE_SECURE_OPEN, FALSE, &sddl, (LPCGUID)&DeviceGUID, &g_DeviceObj);
 		if (NT_SUCCESS(status))
 		{
 			DbgPrint("Create Device Success!");
