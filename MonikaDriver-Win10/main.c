@@ -52,10 +52,10 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 				DbgPrint("Recieved: %s", buffer->msg);
 				break;
 			case RING3_REQUIRE_TESTFILE_CREATE:
-				MonikaCreateFile("\\??\\C:\\Monika_TestCreate");
+				MonikaCreateFile(L"\\??\\C:\\Monika_TestCreate.txt");
 				break;
 			case RING3_REQUIRE_TESTFILE_DELETE:
-				MonikaDeleteFile("\\??\\C:\\Monika_TestCreate");
+				MonikaDeleteFile(L"\\??\\C:\\Monika_TestCreate.txt");
 				break;
 			case RING3_REQUIRE_BSOD:
 				DbgPrint("Wow you like BSOD!?");
