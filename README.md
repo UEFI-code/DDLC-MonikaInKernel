@@ -20,6 +20,8 @@ We have NO responsibility to ensure your Private Data Not Leaking or Broken, or 
 
 ## Technology Problems
 
+See [our wiki](https://github.com/UEFI-code/DDLC-MonikaInKernel/wiki)
+
 Animate object detection training sets.
 
 Get Video-RAM or its buffer assolate to a process.
