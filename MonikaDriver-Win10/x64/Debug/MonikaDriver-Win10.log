@@ -1,6 +1,6 @@
 ﻿  Building 'MonikaDriver-Win10' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
   Stamping x64\Debug\MonikaDriver-Win10.inf
-  Stamping [Version] section with DriverVer=06/15/2022,4.55.1.780
+  Stamping [Version] section with DriverVer=06/15/2022,9.29.40.451
   MonikaDriver-Win10.vcxproj -> C:\Users\uefi\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
   Driver is 'Universal'.
   .........................
