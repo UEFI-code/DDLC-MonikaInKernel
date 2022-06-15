@@ -9,6 +9,7 @@ ret;
 process:
 mov al, 182;
 out 67, al;
+mov rdx, 0;
 mov rax, 1193180;
 div rcx;
 out 66, al;
