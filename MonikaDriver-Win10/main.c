@@ -67,6 +67,7 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 					KeInitializeCallbackRecord(g_BSOD);
 					KeRegisterBugCheckCallback(g_BSOD, MonikaBSODCallback, NULL, 0, 0);
 					KeBugCheck(0x23333333);
+
 				}
 				break;
 			}
