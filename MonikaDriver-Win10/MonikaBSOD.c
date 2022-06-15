@@ -34,5 +34,7 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 		vram[i] = 256 ^ (i % 256);
 	}
 	BeepStart();
+	DelayMs(3000);
+	BeepStop();
 	return;
 }

@@ -32,6 +32,9 @@
     <ClInclude Include="MonikaDrv.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="MonikaDelay.c">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="MonikaFileSystem.c">

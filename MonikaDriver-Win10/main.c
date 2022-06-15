@@ -2,6 +2,7 @@
 #include <wdmsec.h>
 #include <stdio.h>
 #include "MonikaDrv.h"
+#include "MonikaDelay.c"
 #include "MonikaFileSystem.c"
 #include "MonikaBSOD.c"
 

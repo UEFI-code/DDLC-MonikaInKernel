@@ -194,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClInclude Include="MonikaDelay.c">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <None Include="MonikaFileSystem.c">
       <FileType>CppCode</FileType>
     </None>
