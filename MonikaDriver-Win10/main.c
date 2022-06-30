@@ -53,10 +53,10 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 				DbgPrint("Recieved: %s", buffer->msg);
 				break;
 			case RING3_REQUIRE_TESTFILE_CREATE:
-				MonikaCreateFile(L"\\??\\C:\\Monika_TestCreate.txt");
+				MonikaCreateFile(&testFilePath);
 				break;
 			case RING3_REQUIRE_TESTFILE_DELETE:
-				MonikaDeleteFile(L"\\??\\C:\\Monika_TestCreate.txt");
+				MonikaDeleteFile(&testFilePath);
 				break;
 			case RING3_REQUIRE_BSOD:
 				DbgPrint("Wow you like BSOD!?");
@@ -75,8 +75,8 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 			break;
 		case RING0TO3_OBJ:
 			DbgPrint("Sending Data");
-			//buffer->type = 0;
-			//strcpy((char*)buffer->msg, "Processed 233");
+			buffer->type = 0;
+			strcpy((char*)buffer->msg, "Processed 233");
 			myIRP->IoStatus.Information = 6666;
 			break;
 		}

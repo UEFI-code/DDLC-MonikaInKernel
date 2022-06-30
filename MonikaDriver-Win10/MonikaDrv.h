@@ -20,3 +20,5 @@ typedef struct
 	UINT8 type;
 	char msg[128];
 } MonikaObj;
+
+UNICODE_STRING testFilePath = RTL_CONSTANT_STRING(L"\\??\\C:\\Monika_TestCreate.txt");

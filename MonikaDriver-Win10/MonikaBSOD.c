@@ -26,7 +26,8 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 	InbvSetScrollRegion(0, 0, 639, 475); //Not sure, would recommend keeping
 	HalDisplayString(BSOD_MSG);
 	*/
-	MonikaCreateFile(L"\\??\\C:\\Monika_OnBSOD");
+	UNICODE_STRING OnBSODFile = RTL_CONSTANT_STRING(L"\\DosDevices\\C:\\Monika_OnBSOD");
+	MonikaCreateFile(&OnBSODFile);
 	BeepInit(1000);
 	UINT8* vram = (UINT8*)0xa0000;
 	for (int i = 0; i < 0xffff; i++)
