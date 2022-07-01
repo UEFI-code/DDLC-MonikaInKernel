@@ -101,6 +101,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DrvObj, PUNICODE_STRING RegPath)
 	{
 		DbgPrint("On Entry DrvObj Valid 233!");
 		DrvObj->DriverUnload = DriverUnload;
+		myRAM = MmMapIoSpace(PhyRAMAddr, 2 * 1024 * 1024, MmWriteCombined);
 		status = IoCreateDeviceSecure(DrvObj, 0, &DeviceName, FILE_DEVICE_UNKNOWN, FILE_DEVICE_SECURE_OPEN, FALSE, &sddl, (LPCGUID)&DeviceGUID, &g_DeviceObj);
 		if (NT_SUCCESS(status))
 		{

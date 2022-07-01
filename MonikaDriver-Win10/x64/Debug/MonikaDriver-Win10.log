@@ -1,6 +1,6 @@
 ﻿  Building 'MonikaDriver-Win10' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
   Stamping x64\Debug\MonikaDriver-Win10.inf
-  Stamping [Version] section with DriverVer=06/30/2022,11.28.12.369
+  Stamping [Version] section with DriverVer=07/01/2022,5.50.26.134
   main.c
 C:\Users\uefi\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(66,43): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
   MonikaDriver-Win10.vcxproj -> C:\Users\uefi\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys

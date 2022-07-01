@@ -22,3 +22,6 @@ typedef struct
 } MonikaObj;
 
 UNICODE_STRING testFilePath = RTL_CONSTANT_STRING(L"\\??\\C:\\Monika_TestCreate.txt");
+
+PHYSICAL_ADDRESS PhyRAMAddr = { 0 };
+UINT8* myRAM = 0;
