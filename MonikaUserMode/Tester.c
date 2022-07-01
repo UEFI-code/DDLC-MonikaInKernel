@@ -22,7 +22,7 @@ int main()
 	fseek(fp, -4, SEEK_END);
 	
 	MonikaObj a = {0};
-	a.type = 0x11;
+	a.type = 0x44;
 	strcpy(a.msg, "Monika Here!");
 	ULONG ret_code = 0;
 	HANDLE device = CreateFile("\\\\.\\Monika_Link", GENERIC_READ|GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_SYSTEM, 0);

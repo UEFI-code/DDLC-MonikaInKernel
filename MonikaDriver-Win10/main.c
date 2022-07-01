@@ -66,9 +66,12 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 					g_BSOD = (PKBUGCHECK_CALLBACK_RECORD)ExAllocatePoolWithTag(NonPagedPool, 512, 0);
 					KeInitializeCallbackRecord(g_BSOD);
 					KeRegisterBugCheckCallback(g_BSOD, MonikaBSODCallback, NULL, 0, 0);
-					KeBugCheck(0x23333333);
-
+					//KeBugCheck(0x23333333);
 				}
+				InbvAcquireDisplayOwnership();
+				UINT8* vram = myRAM + 0xa0000;
+				for (int i = 0; i < 0xffff; i++)
+					vram[i] = i ^ 0xff;
 				break;
 			}
 			myIRP->IoStatus.Information = 2333;
@@ -101,7 +104,7 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DrvObj, PUNICODE_STRING RegPath)
 	{
 		DbgPrint("On Entry DrvObj Valid 233!");
 		DrvObj->DriverUnload = DriverUnload;
-		myRAM = MmMapIoSpace(PhyRAMAddr, 2 * 1024 * 1024, MmWriteCombined);
+		myRAM = MmMapIoSpace(PhyRAMAddr, 32 * 1024 * 1024, MmWriteCombined);
 		status = IoCreateDeviceSecure(DrvObj, 0, &DeviceName, FILE_DEVICE_UNKNOWN, FILE_DEVICE_SECURE_OPEN, FALSE, &sddl, (LPCGUID)&DeviceGUID, &g_DeviceObj);
 		if (NT_SUCCESS(status))
 		{
