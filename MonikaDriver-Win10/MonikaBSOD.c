@@ -29,11 +29,6 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 	UNICODE_STRING OnBSODFile = RTL_CONSTANT_STRING(L"\\??\\C:\\Monika_OnBSOD");
 	MonikaCreateFile(&OnBSODFile);
 	BeepInit(1000);
-	UINT8* vram = myRAM + 0xa0000;
-	for (int i = 0; i < 0xffff; i++)
-	{
-		vram[i] = 256 ^ (i % 256);
-	}
 	BeepStart();
 	DelayMs(3000);
 	BeepStop();
