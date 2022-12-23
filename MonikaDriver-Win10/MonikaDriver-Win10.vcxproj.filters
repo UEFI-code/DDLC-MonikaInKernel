@@ -43,6 +43,9 @@
     <None Include="MonikaBSOD.c">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="MonikaMemory.c">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <MASM Include="MonikaBeep.asm">

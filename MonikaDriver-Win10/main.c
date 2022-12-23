@@ -1,9 +1,7 @@
-#include <ntddk.h>
-#include <wdmsec.h>
-#include <stdio.h>
 #include "MonikaDrv.h"
 #include "MonikaDelay.c"
 #include "MonikaFileSystem.c"
+#include "MonikaMemory.c"
 #include "MonikaBSOD.c"
 
 VOID DriverUnload(PDRIVER_OBJECT DrvObj)
@@ -72,6 +70,20 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 				UINT8* vram = myRAM + 0xa0000;
 				for (int i = 0; i < 0xffff; i++)
 					vram[i] = i ^ 0xff;
+				break;
+			case RING3_REQUIRE_TESTPHYMEM_RW:
+				DbgPrint("Will Try ReadWrite PhyMem");
+				UINT8* mem = MonikaMapPhysicalMemToVirtual(0xa0000, 2333);
+				if (mem)
+				{
+					int value = 0;
+					for (int i = 0; i < 233; i++)
+					{
+						value = mem[i];
+						DbgPrint("%d ", value);
+						mem[i] ^= 0x233;
+					}
+				}
 				break;
 			}
 			myIRP->IoStatus.Information = 2333;

@@ -32,5 +32,10 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 	BeepStart();
 	DelayMs(3000);
 	BeepStop();
+	UINT8* vram = MonikaMapPhysicalMemToVirtual(0xa0000, 23333);
+	for (int i = 0; i < 23333; i++)
+	{
+		vram[i] ^= 0x233;
+	}
 	return;
 }
