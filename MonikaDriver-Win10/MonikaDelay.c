@@ -1,7 +1,7 @@
 LARGE_INTEGER delayTime;
-void DelayMs(int t)
+void MonikaDelayMs(int t)
 {
-	delayTime.QuadPart = -3000 * 1000 * 10;
+	delayTime.QuadPart = t * -1000 * 10;
 	KeDelayExecutionThread(KernelMode, TRUE, &delayTime);
 	return;
 }

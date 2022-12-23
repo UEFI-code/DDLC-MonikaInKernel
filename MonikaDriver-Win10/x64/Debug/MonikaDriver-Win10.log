@@ -1,11 +1,11 @@
 ﻿  Building 'MonikaDriver-Win10' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
   Stamping x64\Debug\MonikaDriver-Win10.inf
-  Stamping [Version] section with DriverVer=12/23/2022,12.45.44.997
+  Stamping [Version] section with DriverVer=12/23/2022,13.19.16.14
   main.c
 C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaMemory.c(4,31): warning C4047: '=': 'LONGLONG' differs in levels of indirection from 'UINT8 *'
 C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaMemory.c(12,28): warning C4047: 'return': 'UINT8 *' differs in levels of indirection from 'LONGLONG'
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(35,53): warning C4047: 'function': 'UINT8 *' differs in levels of indirection from 'int'
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(35,46): warning C4024: 'MonikaMapPhysicalMemToVirtual': different types for formal and actual parameter 1
+C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(31,53): warning C4047: 'function': 'UINT8 *' differs in levels of indirection from 'int'
+C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(31,46): warning C4024: 'MonikaMapPhysicalMemToVirtual': different types for formal and actual parameter 1
 C:\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(76,55): warning C4047: 'function': 'UINT8 *' differs in levels of indirection from 'int'
 C:\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(76,48): warning C4024: 'MonikaMapPhysicalMemToVirtual': different types for formal and actual parameter 1
 C:\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(64,43): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.

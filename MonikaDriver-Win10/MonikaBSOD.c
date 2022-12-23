@@ -10,10 +10,6 @@ VOID InbvInstallDisplayStringFilter(ULONG b);
 VOID InbvEnableDisplayString(ULONG b);
 */
 
-void BeepInit(int freq);
-void BeepStart();
-void BeepStop();
-
 VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 {
 	/* Not Work on Windows Server 2019
@@ -28,10 +24,10 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 	*/
 	UNICODE_STRING OnBSODFile = RTL_CONSTANT_STRING(L"\\??\\C:\\Monika_OnBSOD");
 	MonikaCreateFile(&OnBSODFile);
-	BeepInit(1000);
-	BeepStart();
-	DelayMs(3000);
-	BeepStop();
+	MonikaBeepInit(1000);
+	MonikaBeepStart();
+	MonikaDelayMs(3000);
+	MonikaBeepStop();
 	UINT8* vram = MonikaMapPhysicalMemToVirtual(0xa0000, 23333);
 	for (int i = 0; i < 23333; i++)
 	{

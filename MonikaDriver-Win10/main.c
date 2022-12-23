@@ -85,6 +85,13 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 					}
 				}
 				break;
+			case RING3_REQUIRE_TESTBEEP:
+				DbgPrint("Will Try Beep");
+				MonikaBeepInit(3000);
+				MonikaBeepStart();
+				MonikaDelayMs(1000);
+				MonikaBeepStop();
+				break;
 			}
 			myIRP->IoStatus.Information = 2333;
 			break;

@@ -1,6 +1,6 @@
 .code _text
 
-BeepInit PROC PUBLIC
+MonikaBeepInit PROC PUBLIC
 
 cmp rcx, 0;
 ja process;
@@ -18,9 +18,9 @@ out 66, al;
 mov rax, 0;
 ret;
 
-BeepInit ENDP
+MonikaBeepInit ENDP
 
-BeepStart PROC PUBLIC
+MonikaBeepStart PROC PUBLIC
 
 in al, 97;
 or al, 3;
@@ -28,14 +28,14 @@ and al, 15;
 out 97, al;
 ret;
 
-BeepStart ENDP
+MonikaBeepStart ENDP
 
-BeepStop PROC PUBLIC
+MonikaBeepStop PROC PUBLIC
 
 in al, 97;
 and al, 13;
 out 97, al;
 
-BeepStop ENDP
+MonikaBeepStop ENDP
 
 END

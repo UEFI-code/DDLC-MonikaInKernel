@@ -19,6 +19,7 @@ PKBUGCHECK_CALLBACK_RECORD g_BSOD = 0;
 #define RING3_REQUIRE_TESTFILE_CREATE 0x10
 #define RING3_REQUIRE_TESTFILE_DELETE 0x11
 #define RING3_REQUIRE_TESTPHYMEM_RW 0x20
+#define RING3_REQUIRE_TESTBEEP 0x99
 
 typedef struct
 {
@@ -32,3 +33,7 @@ PHYSICAL_ADDRESS PhyRAMAddr = { 0 };
 UINT8* myRAM = 0;
 
 VOID InbvAcquireDisplayOwnership(VOID);
+
+void MonikaBeepInit(int freq);
+void MonikaBeepStart();
+void MonikaBeepStop();
