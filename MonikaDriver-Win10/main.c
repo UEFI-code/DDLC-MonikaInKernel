@@ -121,13 +121,13 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DrvObj, PUNICODE_STRING RegPath)
 	NTSTATUS status = 0;
 	if (DrvObj != 0)
 	{
-		DbgPrint("On Entry DrvObj Valid 233!");
+		DbgPrint("On Entry DrvObj Valid 233!\n");
 		DrvObj->DriverUnload = DriverUnload;
 		myRAM = MmMapIoSpace(PhyRAMAddr, 32 * 1024 * 1024, MmWriteCombined);
 		status = IoCreateDeviceSecure(DrvObj, 0, &DeviceName, FILE_DEVICE_UNKNOWN, FILE_DEVICE_SECURE_OPEN, FALSE, &sddl, (LPCGUID)&DeviceGUID, &g_DeviceObj);
 		if (NT_SUCCESS(status))
 		{
-			DbgPrint("Create Device Success!");
+			DbgPrint("Create Device Success!\n");
 			DrvObj->MajorFunction[IRP_MJ_DEVICE_CONTROL] = DeviceCTL;
 			DrvObj->MajorFunction[IRP_MJ_CREATE] = MuShi;
 			DrvObj->MajorFunction[IRP_MJ_CLOSE] = MuShi;
