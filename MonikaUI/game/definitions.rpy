@@ -6,6 +6,7 @@ python early:
     import singleton
     me = singleton.SingleInstance()
     import os
+    from ctypes import *
 
 init python:
     # make sure ../characters exists
@@ -59,10 +60,26 @@ init python:
         _windows_hidden = True
         renpy.pause(time)
         _windows_hidden = False
-
-
-
-
+    
+    class MonikaDLL():
+        def __init__(self):
+            self.dll = None
+            self.dllpath = config.basedir + '/game/MonikaDLL.dll'
+        
+        def load(self):
+            try:
+                self.dll = cdll.LoadLibrary(self.dllpath)
+                return True
+            except:
+                print("Failed to load MonikaDLL.dll")
+                return False
+        
+        def testMsg(self, msg = 'Hello, Monika here'):
+            p = create_string_buffer(len(msg))
+            p.value = msg.encode('utf-8')
+            self.dll.MonikaMsg(p)
+    
+    myDLL = MonikaDLL()
 
 define audio.t1 = "<loop 22.073>bgm/1.ogg"
 define audio.t2 = "<loop 4.499>bgm/2.ogg"
