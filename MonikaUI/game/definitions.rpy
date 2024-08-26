@@ -77,7 +77,7 @@ init python:
         def win32Msg(self, msg = 'Hello', title = 'Test Message', typ = 0):
             p_msg = create_string_buffer(msg.encode('utf-8'))
             p_title = create_string_buffer(title.encode('utf-8'))
-            return self.dll.testMsg(p_msg, p_title, typ)
+            return self.dll.MonikaMsg(p_msg, p_title, typ)
     
     myDLL = MonikaDLL()
 
