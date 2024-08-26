@@ -773,13 +773,7 @@ label ch30_autoload:
         $ config.allow_skipping = True
     else:
         $ config.allow_skipping = False
-    if persistent.current_monikatopic != 0:
-        m "Now, where was I...?"
-        $ pause(4.0)
-        if not persistent.current_monikatopic or persistent.current_monikatopic == 26:
-            $ persistent.current_monikatopic = 1
-        call chk_dll_and_driver
-        call expression "ch30_" + str(persistent.current_monikatopic)
+    
     jump ch30_loop
 
 
@@ -850,7 +844,13 @@ label ch30_loop:
 
     call chk_dll_and_driver
 
-    $ persistent.current_monikatopic = 0
+    if persistent.current_monikatopic != 0:
+        m "Now, where was I...?"
+        $ pause(4.0)
+        if not persistent.current_monikatopic or persistent.current_monikatopic == 26:
+            $ persistent.current_monikatopic = 1
+        call expression "ch30_" + str(persistent.current_monikatopic)
+    
     if not persistent.tried_skip:
         $ config.allow_skipping = True
     else:
@@ -888,6 +888,7 @@ label ch30_waitloop:
 
 
     call expression "ch30_" + str(persistent.current_monikatopic)
+    $ persistent.current_monikatopic = 0
     jump ch30_loop
 
 
