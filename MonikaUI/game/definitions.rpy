@@ -5,8 +5,12 @@ define config.developer = False
 python early:
     import singleton
     me = singleton.SingleInstance()
+    import os
 
 init python:
+    # make sure ../characters exists
+    try: os.makedirs(config.basedir + "/characters")
+    except: pass
     config.keymap['game_menu'].remove('mouseup_3')
     config.keymap['hide_windows'].append('mouseup_3')
     config.keymap['self_voicing'] = []
