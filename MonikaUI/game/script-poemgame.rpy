@@ -19,7 +19,7 @@ init python:
     with renpy.file('poemwords.txt') as wordfile:
         for line in wordfile:
             
-            line = line.strip()
+            line = line.strip().decode('utf-8')
             
             if line == '' or line[0] == '#': continue
             
