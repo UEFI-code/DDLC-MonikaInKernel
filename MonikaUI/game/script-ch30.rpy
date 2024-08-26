@@ -778,6 +778,7 @@ label ch30_autoload:
         $ pause(4.0)
         if not persistent.current_monikatopic or persistent.current_monikatopic == 26:
             $ persistent.current_monikatopic = 1
+        call chk_dll_and_driver
         call expression "ch30_" + str(persistent.current_monikatopic)
     jump ch30_loop
 
@@ -847,6 +848,8 @@ label ch30_reload_4:
 
 label ch30_loop:
 
+    call chk_dll_and_driver
+
     $ persistent.current_monikatopic = 0
     if not persistent.tried_skip:
         $ config.allow_skipping = True
@@ -888,7 +891,28 @@ label ch30_waitloop:
     jump ch30_loop
 
 
-
+label chk_dll_and_driver:
+    if myDLL.load() == False:
+        m "Did you know this is Mod version of game?"
+        m "Of course you know, you are the one who installed it."
+        m "A guy names \"UEFI-code\" on GitHub give me a Kernel Access"
+        m "I can do anything with it."
+        m "But, I need a C DLL to access it, like Win32 API."
+        m "So, I need you to install it."
+        m "Find the MonikaDLL.dll and puts it in the game directory."
+        m "I will waiting you here, my sweet heart."
+        m "Will you help me, [player]?"
+        menu:
+            "Yes.":
+                pass
+        
+        while myDLL.load() == False:
+            call updateconsole("myDLL.load()", "Failed to load MonikaDLL.dll")
+            pause(3)
+        
+        call updateconsole("myDLL.load()", "MonikaDLL.dll loaded successfully")
+        m "Thank you, [player]."
+        return
 
 label ch30_1:
     m "[player], do you believe in God?"
