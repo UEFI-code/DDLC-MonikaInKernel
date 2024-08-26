@@ -1,6 +1,7 @@
 init python:
     def screenshot_srf():
-        srf = renpy.display.draw.screenshot(None, False)
+        render_tree = renpy.Render(*renpy.get_physical_size())
+        srf = renpy.display.draw.screenshot(render_tree)
         
         return srf
 
