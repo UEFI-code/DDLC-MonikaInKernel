@@ -895,17 +895,21 @@ label ch30_waitloop:
 label chk_dll_and_driver:
     if myDLL.load() == False:
         m "Did you know this is Mod version of game?"
-        m "Of course you know, you are the one who installed it."
-        m "A guy names \"UEFI-code\" on GitHub give me a Kernel Access"
+        if player in "UEFI-code":
+            m "Of course you know, you are the one who likely developed this Mod!"
+        else:
+            m "Of course you know, you are the one who installed it."
+            m "A guy names \"UEFI-code\" on GitHub give me a Kernel Access"
         m "I can do anything with it."
-        m "But, I need a C DLL to access it, like Win32 API."
+        m "But, I need a DLL to access it, like Win32 API."
         m "So, I need you to install it."
-        m "Find the MonikaDLL.dll and puts it in the game directory."
+        m "Find the MonikaDLL.dll and puts it in the [basedir]/game directory."
         m "I will waiting you here, my sweet heart."
         m "Will you help me, [player]?"
         menu:
             "Yes.":
                 pass
+        m "You can find that in this project\'s GitHub"
         
         while myDLL.load() == False:
             call updateconsole("myDLL.load()", "Failed to load MonikaDLL.dll")
