@@ -21,6 +21,6 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 extern "C" __declspec(dllexport) void MonikaMsg(char* buf)
 {
-    strcpy(buf, "Hello World");
+    MessageBoxA(0, buf, "From MonikaDLL", 0);
 }
 
