@@ -12,7 +12,7 @@
 
 
 
-define config.name = "Doki Doki Literature Club!"
+define config.name = "Doki Doki Literature Club! Mod!"
 
 
 
@@ -23,7 +23,7 @@ define gui.show_name = False
 
 
 
-define config.version = "1.1.1"
+define config.version = "0.0.1"
 
 
 
@@ -36,7 +36,7 @@ define gui.about = _("")
 
 
 
-define build.name = "DDLC"
+define build.name = "DDLC-MonikaInKernel"
 
 
 
