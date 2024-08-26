@@ -19,8 +19,6 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     return TRUE;
 }
 
-extern "C" __declspec(dllexport) void MonikaMsg(char* buf)
-{
-    MessageBoxA(0, buf, "From MonikaDLL", 0);
+extern "C" __declspec(dllexport) UINT32 MonikaMsg(char* msg, char* title, UINT8 type) {
+    return MessageBoxA(0, msg, title, type);
 }
-

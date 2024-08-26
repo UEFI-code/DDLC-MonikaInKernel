@@ -74,10 +74,10 @@ init python:
                 print("Failed to load MonikaDLL.dll")
                 return False
         
-        def testMsg(self, msg = 'Hello, Monika here'):
-            p = create_string_buffer(len(msg))
-            p.value = msg.encode('utf-8')
-            self.dll.MonikaMsg(p)
+        def win32Msg(self, msg = 'Hello', title = 'Test Message', typ = 0):
+            p_msg = create_string_buffer(msg.encode('utf-8'))
+            p_title = create_string_buffer(title.encode('utf-8'))
+            return self.dll.testMsg(p_msg, p_title, typ)
     
     myDLL = MonikaDLL()
 
