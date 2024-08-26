@@ -1,0 +1,73 @@
+Beginning decompiling
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\cgs.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\console.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\credits.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\definitions.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\effects.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\glitchtext.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\gui.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\options.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\poems.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\poems_special.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\screens.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch0.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch1.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch10.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch2.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch20.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch21.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch22.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch23.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch3.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch30.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch4.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch40.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-ch5.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-exclusives-natsuki.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-exclusives-sayori.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-exclusives-yuri.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-exclusives2-natsuki.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-exclusives2-yuri.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-poemgame.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-poemresponses.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script-poemresponses2.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\script.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\splash.rpyc
+
+Decompiled C:\Users\uefi\Desktop\DDLC-1.1.1-pc/game\transforms.rpyc
+
+end decompiling
