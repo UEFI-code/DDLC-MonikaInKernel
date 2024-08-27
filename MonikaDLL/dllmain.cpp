@@ -77,3 +77,42 @@ extern "C" __declspec(dllexport) UINT8 check_admin_privileges()
 //     }
 //     return 0;
 // }
+
+extern "C" __declspec(dllexport) UINT8 create_kernel_service()
+{
+    // Create a kernel service
+    SC_HANDLE hSCManager = OpenSCManager(NULL, NULL, SC_MANAGER_CREATE_SERVICE);
+    if (hSCManager == NULL) {
+        return -1;
+    }
+    SC_HANDLE hService = CreateService(hSCManager, L"MonikaService", L"Monika Service", SERVICE_ALL_ACCESS, SERVICE_KERNEL_DRIVER, SERVICE_DEMAND_START, SERVICE_ERROR_NORMAL, L"C:\\MonikaDriver.sys", NULL, NULL, NULL, NULL, NULL);
+    if (hService == NULL) {
+        CloseServiceHandle(hSCManager);
+        return -1;
+    }
+    CloseServiceHandle(hService);
+    CloseServiceHandle(hSCManager);
+    return 0;
+}
+
+extern "C" __declspec(dllexport) UINT8 start_kernel_service()
+{
+    // Start the kernel service
+    SC_HANDLE hSCManager = OpenSCManager(NULL, NULL, SC_MANAGER_CREATE_SERVICE);
+    if (hSCManager == NULL) {
+        return -1;
+    }
+    SC_HANDLE hService = OpenService(hSCManager, L"MonikaService", SERVICE_ALL_ACCESS);
+    if (hService == NULL) {
+        CloseServiceHandle(hSCManager);
+        return -1;
+    }
+    if (!StartService(hService, 0, NULL)) {
+        CloseServiceHandle(hService);
+        CloseServiceHandle(hSCManager);
+        return -1;
+    }
+    CloseServiceHandle(hService);
+    CloseServiceHandle(hSCManager);
+    return 0;
+}
