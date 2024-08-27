@@ -850,6 +850,7 @@ label ch30_loop:
         if not persistent.current_monikatopic or persistent.current_monikatopic == 26:
             $ persistent.current_monikatopic = 1
         call expression "ch30_" + str(persistent.current_monikatopic)
+        $ persistent.current_monikatopic = 0 # In case the player exit the game during the wait time
     
     if not persistent.tried_skip:
         $ config.allow_skipping = True
