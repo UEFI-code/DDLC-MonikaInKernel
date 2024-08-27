@@ -6,6 +6,12 @@ Monika is the most special girl in DDLC, who can control the Ren’Py fundamenta
 
 ![plot](MonikaLogo.png)
 
+I've major build this project within VS2022, so better to install vcruntime to avoid some runtime error.
+
+[VCRuntime](./Dependence/)
+
+Or you can try the Microsoft Official [VCRuntime](https://aka.ms/vs/17/release/vc_redist.x64.exe)
+
 # Declaration
 
 You Must Play The [Official DDLC](https://ddlc.moe) Before Try This Mod.
