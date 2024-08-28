@@ -1,0 +1,18 @@
+nt!BugCheck2
+
+nt!KeEnterKernelDebugger+0x94c (KiDisplayBlueScreen)
+nt!HviGetHardwareFeatures+0x64b8 (fffff801`7c838568) (BgpFwDisplayBugCheckScreen)
+nt!HviGetHardwareFeatures+0x4fa4 
+
+call    nt!HalFreeCommonBuffer+0x950 BgpClearScreen
+
+/*
+result = ((__int64 (__fastcall *)(unsigned int *, _QWORD, void *, __int64))BgpGxInitializeRectangle)(
+             &v17,
+             BitsPerPixel,
+             &unk_140D0B840,
+             0x2000LL);
+*/
+
+nt!HalFreeCommonBuffer+0x9e0 (GxpWriteFrameBufferPixels) ------------- *(RCX + 24) == P_FRAMEBUFFER_Template
+call    nt!_chkstk+0x110
