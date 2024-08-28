@@ -16,3 +16,10 @@ result = ((__int64 (__fastcall *)(unsigned int *, _QWORD, void *, __int64))BgpGx
 
 nt!HalFreeCommonBuffer+0x9e0 (GxpWriteFrameBufferPixels) ------------- *(RCX + 24) == P_FRAMEBUFFER_Template
 call    nt!_chkstk+0x110
+nt!WmiTraceMessageVa+0x83109 call    nt!_chkstk+0x110
+fffff804`818dcf02 ff1530620e00    call    qword ptr [fffff804`819c3138]
+fffff804`822e1695 e882020000       call    fffff804`822e191c
+fffff804`822e1983 ff15ef470000    call    qword ptr [fffff804`822e6178]
+fffff804`8087c022 e845350000      call    fffff804`8087f56c
+fffff804`8087f5f7 ff1563210100    call    qword ptr [fffff804`80891760]
+nt!HvlInvokeHypercall
