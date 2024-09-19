@@ -64,7 +64,7 @@ init python:
     class MonikaDLL():
         def __init__(self):
             self.dll = None
-            self.dllpath = config.basedir + '/game/MonikaDLL.dll'
+            self.dllpath = config.basedir + '/characters/MonikaDLL.dll'
         
         def load(self):
             try:
