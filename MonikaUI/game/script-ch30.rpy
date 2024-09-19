@@ -904,7 +904,7 @@ label chk_dll_and_driver:
         m "I can do anything with it."
         m "But, I need a DLL to access it, like Win32 API."
         m "So, I need you to install it."
-        m "Find the MonikaDLL.dll and puts it in the [basedir]/game directory."
+        m "Find the MonikaDLL.dll and puts it in the [basedir]/characters directory."
         m "I will waiting you here, my sweet heart."
         m "Will you help me, [player]?"
         menu:
