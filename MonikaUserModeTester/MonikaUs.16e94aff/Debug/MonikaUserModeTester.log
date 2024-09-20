@@ -1,0 +1,6 @@
+﻿  MonikaUserModeTester.cpp
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaUserModeTester\MonikaUserModeTester.cpp(36,11): warning C4477: 'scanf_s' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'UINT8 *'
+      C:\Users\Administrator\DDLC-MonikaInKernel\MonikaUserModeTester\MonikaUserModeTester.cpp(36,11):
+      consider using '%hhd' in the format string
+  
+  MonikaUserModeTester.vcxproj -> C:\Users\Administrator\DDLC-MonikaInKernel\MonikaUserModeTester\Debug\MonikaUserModeTester.exe
