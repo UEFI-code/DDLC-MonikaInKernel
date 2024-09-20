@@ -1,8 +1,8 @@
 .code _text
 
 MonikaBeepInit PROC PUBLIC
-
-cmp cx, 0;
+and rcx, 0FFFFh; Only Keep 2 bytes (uint16)
+cmp rcx, 0;
 ja process;
 mov rax, -1;
 ret;
@@ -11,7 +11,7 @@ mov al, 182;
 out 67, al;
 mov rdx, 0;
 mov rax, 1193180;
-div cx;
+div rcx;
 out 66, al;
 mov al, ah;
 out 66, al;
@@ -35,6 +35,7 @@ MonikaBeepStop PROC PUBLIC
 in al, 97;
 and al, 13;
 out 97, al;
+ret;
 
 MonikaBeepStop ENDP
 
