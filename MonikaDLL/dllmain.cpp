@@ -20,11 +20,14 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     return TRUE;
 }
 
-extern "C" __declspec(dllexport) UINT32 MonikaMsg(char* msg, char* title, UINT8 type) {
+extern "C"
+{
+
+__declspec(dllexport) UINT32 MonikaMsg(char* msg, char* title, UINT8 type) {
     return MessageBoxA(0, msg, title, type);
 }
 
-extern "C" __declspec(dllexport) UINT8 check_secure_boot()
+__declspec(dllexport) UINT8 check_secure_boot()
 {
     // Read from registry, HKLM\SYSTEM\CurrentControlSet\Control\SecureBoot\State\UEFISecureBootEnabled
     HKEY hKey;
@@ -44,7 +47,7 @@ extern "C" __declspec(dllexport) UINT8 check_secure_boot()
     return dwValue;
 }
 
-extern "C" __declspec(dllexport) UINT8 check_admin_privileges()
+__declspec(dllexport) UINT8 check_admin_privileges()
 {
     // Check if the current process has admin privileges
     BOOL bIsAdmin = FALSE;
@@ -57,7 +60,7 @@ extern "C" __declspec(dllexport) UINT8 check_admin_privileges()
     return bIsAdmin;
 }
 
-// extern "C" __declspec(dllexport) UINT8 acquire_admin_uac()
+__declspec(dllexport) UINT8 acquire_admin_uac()
 // {
 //     // Using SeProfileSingleProcessPrivilege to elevate the process
 //     HANDLE hToken;
@@ -78,7 +81,7 @@ extern "C" __declspec(dllexport) UINT8 check_admin_privileges()
 //     return 0;
 // }
 
-extern "C" __declspec(dllexport) UINT8 create_kernel_service()
+__declspec(dllexport) UINT8 create_kernel_service()
 {
     // Create a kernel service
     SC_HANDLE hSCManager = OpenSCManager(NULL, NULL, SC_MANAGER_CREATE_SERVICE);
@@ -95,7 +98,7 @@ extern "C" __declspec(dllexport) UINT8 create_kernel_service()
     return 0;
 }
 
-extern "C" __declspec(dllexport) UINT8 start_kernel_service()
+__declspec(dllexport) UINT8 start_kernel_service()
 {
     // Start the kernel service
     SC_HANDLE hSCManager = OpenSCManager(NULL, NULL, SC_MANAGER_CREATE_SERVICE);
@@ -115,4 +118,6 @@ extern "C" __declspec(dllexport) UINT8 start_kernel_service()
     CloseServiceHandle(hService);
     CloseServiceHandle(hSCManager);
     return 0;
+}
+
 }
