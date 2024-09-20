@@ -8,7 +8,7 @@ extern "C"
 #include <Windows.h>
 #include <winioctl.h>
 
-HANDLE device = NULL;
+__declspec(dllexport) HANDLE device = NULL;
 
 typedef struct
 {
