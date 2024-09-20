@@ -2,7 +2,7 @@
 
 MonikaBeepInit PROC PUBLIC
 
-cmp rcx, 0;
+cmp cx, 0;
 ja process;
 mov rax, -1;
 ret;
@@ -11,7 +11,7 @@ mov al, 182;
 out 67, al;
 mov rdx, 0;
 mov rax, 1193180;
-div rcx;
+div cx;
 out 66, al;
 mov al, ah;
 out 66, al;

@@ -60,7 +60,7 @@ __declspec(dllexport) UINT8 check_admin_privileges()
     return bIsAdmin;
 }
 
-__declspec(dllexport) UINT8 acquire_admin_uac()
+// __declspec(dllexport) UINT8 acquire_admin_uac()
 // {
 //     // Using SeProfileSingleProcessPrivilege to elevate the process
 //     HANDLE hToken;
