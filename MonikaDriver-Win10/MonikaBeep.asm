@@ -1,6 +1,7 @@
 .code _text
 
 MonikaBeepInit PROC PUBLIC
+
 and rcx, 0FFFFh; Only Keep 2 bytes (uint16)
 cmp rcx, 0;
 ja process;
