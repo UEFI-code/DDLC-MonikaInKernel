@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaUserModeTester\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{16E94AFF-FA06-469D-852B-FCBC68FE13AD}|MonikaUserModeTester.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaUserModeTester\\MonikaUserModeTester.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{16E94AFF-FA06-469D-852B-FCBC68FE13AD}|MonikaUserModeTester.vcxproj|solutionrelative:MonikaUserModeTester.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MonikaUserModeTester.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaUserModeTester\\MonikaUserModeTester.cpp",
+              "RelativeDocumentMoniker": "MonikaUserModeTester.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaUserModeTester\\MonikaUserModeTester.cpp",
+              "RelativeToolTip": "MonikaUserModeTester.cpp",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-20T04:09:41.108Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
