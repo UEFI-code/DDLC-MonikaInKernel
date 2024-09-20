@@ -1,17 +1,25 @@
 ﻿  Building 'MonikaDriver-Win10' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
   Stamping x64\Debug\MonikaDriver-Win10.inf
-  Stamping [Version] section with DriverVer=12/23/2022,13.19.16.14
+  Stamping [Version] section with DriverVer=09/20/2024,15.0.0.121
   main.c
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaMemory.c(4,31): warning C4047: '=': 'LONGLONG' differs in levels of indirection from 'UINT8 *'
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaMemory.c(12,28): warning C4047: 'return': 'UINT8 *' differs in levels of indirection from 'LONGLONG'
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(31,53): warning C4047: 'function': 'UINT8 *' differs in levels of indirection from 'int'
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(31,46): warning C4024: 'MonikaMapPhysicalMemToVirtual': different types for formal and actual parameter 1
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(76,55): warning C4047: 'function': 'UINT8 *' differs in levels of indirection from 'int'
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(76,48): warning C4024: 'MonikaMapPhysicalMemToVirtual': different types for formal and actual parameter 1
-C:\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(64,43): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
-  MonikaDriver-Win10.vcxproj -> C:\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaMemory.c(4,22): warning C4047: '=': 'LONGLONG' differs in levels of indirection from 'UINT8 *'
+  (compiling source file 'main.c')
+  
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaMemory.c(12,2): warning C4047: 'return': 'UINT8 *' differs in levels of indirection from 'LONGLONG'
+  (compiling source file 'main.c')
+  
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(31,46): warning C4047: 'function': 'UINT8 *' differs in levels of indirection from 'int'
+  (compiling source file 'main.c')
+  
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(31,46): warning C4024: 'MonikaMapPhysicalMemToVirtual': different types for formal and actual parameter 1
+  (compiling source file 'main.c')
+  
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(76,48): warning C4047: 'function': 'UINT8 *' differs in levels of indirection from 'int'
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(76,48): warning C4024: 'MonikaMapPhysicalMemToVirtual': different types for formal and actual parameter 1
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(64,43): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
+  MonikaDriver-Win10.vcxproj -> C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
   Done Adding Additional Store
-  Successfully signed: C:\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
+  Successfully signed: C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
   
   Driver is 'Universal'.
   .........................
@@ -24,7 +32,7 @@ C:\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(64,43): warning C4996: 'ExAlloc
   None
   
   Catalog generation complete.
-  C:\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10\monikadriver-win10.cat
+  C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10\monikadriver-win10.cat
   Done Adding Additional Store
-  Successfully signed: C:\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10\monikadriver-win10.cat
+  Successfully signed: C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10\monikadriver-win10.cat
   
