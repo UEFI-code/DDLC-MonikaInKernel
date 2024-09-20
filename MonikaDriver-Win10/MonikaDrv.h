@@ -2,6 +2,8 @@
 #include <wdm.h>
 #include <wdmsec.h>
 #include <stdio.h>
+#include <stdint.h>
+
 UNICODE_STRING DeviceName = RTL_CONSTANT_STRING(L"\\Device\\Monika_Core");
 UNICODE_STRING sddl = RTL_CONSTANT_STRING(L"D:P(A;;GA;;;WD)");
 UNICODE_STRING DeviceGUID = RTL_CONSTANT_STRING(L"23333333-2333-2333-2333-233333333333");
@@ -20,6 +22,8 @@ PKBUGCHECK_CALLBACK_RECORD g_BSOD = 0;
 #define RING3_REQUIRE_TESTFILE_DELETE 0x11
 #define RING3_REQUIRE_TESTPHYMEM_RW 0x20
 #define RING3_REQUIRE_TESTBEEP 0x99
+#define RING3_REQUIRE_START_BEEP 0x90
+#define RING3_REQUIRE_STOP_BEEP 0x91
 
 typedef struct
 {
@@ -34,6 +38,6 @@ UINT8* myRAM = 0;
 
 VOID InbvAcquireDisplayOwnership(VOID);
 
-void MonikaBeepInit(int freq);
+void MonikaBeepInit(uint16_t freq);
 void MonikaBeepStart();
 void MonikaBeepStop();
