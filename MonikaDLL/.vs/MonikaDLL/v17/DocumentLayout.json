@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\uefi\\DDLC-MonikaInKernel\\MonikaDLL\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\uefi\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "dllmain.cpp",
-              "DocumentMoniker": "C:\\Users\\uefi\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp",
               "RelativeDocumentMoniker": "dllmain.cpp",
-              "ToolTip": "C:\\Users\\uefi\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp",
               "RelativeToolTip": "dllmain.cpp",
-              "ViewState": "AQIAAF8AAAAA1czMzMwXwE4AAAAEAAAA",
+              "ViewState": "AgIAAF8AAAAA1czMzMwXwE4AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-26T04:16:01.456Z",
               "EditorCaption": ""
