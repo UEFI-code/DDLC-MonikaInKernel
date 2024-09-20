@@ -45,6 +45,7 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 		switch (myIRPsp->Parameters.DeviceIoControl.IoControlCode)
 		{
 		case RING3TO0_OBJ:
+			DbgPrint("Task Type: 0x%X\n", buffer->type);
 			switch (buffer->type)
 			{
 			case RING3_REQUIRE_TESTSTR:
