@@ -34,10 +34,11 @@ typedef struct
 UNICODE_STRING testFilePath = RTL_CONSTANT_STRING(L"\\??\\C:\\Monika_TestCreate.txt");
 
 PHYSICAL_ADDRESS PhyRAMAddr = { 0 };
-UINT8* myRAM = 0;
+// UINT8* myRAM = 0;
 
 VOID InbvAcquireDisplayOwnership(VOID);
 
 void MonikaBeepInit(uint16_t freq);
 void MonikaBeepStart();
 void MonikaBeepStop();
+void NopToy();
