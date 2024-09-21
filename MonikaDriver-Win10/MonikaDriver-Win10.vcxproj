@@ -213,6 +213,7 @@
     <ClInclude Include="MonikaDrv.h" />
   </ItemGroup>
   <ItemGroup>
+    <MASM Include="Gidget.asm" />
     <MASM Include="MonikaBeep.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

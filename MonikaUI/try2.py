@@ -12,6 +12,12 @@ def BeepSong(song = [100,200,300,400,500,600,700,800], duration = 0.3):
         time.sleep(duration)
     MonikaDLL.MonikaBeepStop()
 
+def BeepUp():
+    for freq in range(100, 10000, 50):
+        MonikaDLL.MonikaBeepStart(freq)
+        time.sleep(0.1)
+    MonikaDLL.MonikaBeepStop()
+
 if __name__ == "__main__":
-    BeepSong()
+    BeepUp()
     print("Beeped")
