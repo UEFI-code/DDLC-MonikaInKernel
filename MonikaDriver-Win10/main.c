@@ -82,7 +82,7 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 				DbgPrint("Will Try Beep\n");
 				MonikaBeepInit(3000);
 				MonikaBeepStart();
-				MonikaDelayMs(1000);
+				MonikaDelayNanoNative(10 * 1000 * 1000);
 				MonikaBeepStop();
 				break;
 			case RING3_REQUIRE_START_BEEP:

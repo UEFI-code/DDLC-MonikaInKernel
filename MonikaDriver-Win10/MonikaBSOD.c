@@ -1,15 +1,3 @@
-/*
-NTSYSAPI VOID NTAPI HalDisplayString(PCHAR String);
-VOID InbvAcquireDisplayOwnership(VOID);
-VOID InbvResetDisplay(VOID);
-INT InbvSetTextColor(INT color); //IRBG
-VOID InbvDisplayString(PSZ text);
-VOID InbvSolidColorFill(ULONG left, ULONG top, ULONG width, ULONG height, ULONG color);
-VOID InbvSetScrollRegion(ULONG left, ULONG top, ULONG width, ULONG height);
-VOID InbvInstallDisplayStringFilter(ULONG b);
-VOID InbvEnableDisplayString(ULONG b);
-*/
-
 UNICODE_STRING OnBSODFile = RTL_CONSTANT_STRING(L"\\??\\C:\\Monika_OnBSOD");
 
 VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
@@ -25,15 +13,14 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 	HalDisplayString(BSOD_MSG);
 	*/
 	// MonikaCreateFile(&OnBSODFile);
-	MonikaBeepInit(1000);
+	MonikaBeepInit(50);
 	MonikaBeepStart();
-	MonikaDelayMs(1000);
+	for (int i = 50; i < 2000; i+=50)
+	{
+		MonikaBeepInit(i);
+		MonikaDelayNanoNative(10 * 1000 * 100);
+	}
 	MonikaBeepStop();
 	NopToy();
-	// UINT8* vram = MonikaMapPhysicalMemToVirtual(0xa0000, 23333);
-	// for (int i = 0; i < 23333; i++)
-	// {
-	// 	vram[i] ^= 0x233;
-	// }
 	return;
 }
