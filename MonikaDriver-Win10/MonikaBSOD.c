@@ -27,7 +27,7 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 	// MonikaCreateFile(&OnBSODFile);
 	MonikaBeepInit(1000);
 	MonikaBeepStart();
-	MonikaDelayMs(3000);
+	MonikaDelayMs(1000);
 	MonikaBeepStop();
 	NopToy();
 	// UINT8* vram = MonikaMapPhysicalMemToVirtual(0xa0000, 23333);
