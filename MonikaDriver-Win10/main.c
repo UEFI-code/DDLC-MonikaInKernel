@@ -60,10 +60,7 @@ NTSTATUS DeviceCTL(PDEVICE_OBJECT DeviceObj, PIRP myIRP)
 			case RING3_REQUIRE_BSOD:
 				DbgPrint("Wow you like BSOD!?\n");
 				BSOD_MSG = buffer->msg;
-				if (g_BSOD == 0)
-					g_BSOD = (PKBUGCHECK_CALLBACK_RECORD)ExAllocatePoolWithTag(NonPagedPool, 512, 0);
-				KeInitializeCallbackRecord(g_BSOD);
-				KeRegisterBugCheckCallback(g_BSOD, MonikaBSODCallback, NULL, 0, 0);
+				
 				KeBugCheck(0x23333333);
 				break;
 			case RING3_REQUIRE_TESTPHYMEM_RW:
@@ -128,6 +125,11 @@ NTSTATUS DriverEntry(PDRIVER_OBJECT DrvObj, PUNICODE_STRING RegPath)
 	{
 		DbgPrint("On Entry DrvObj Valid 233!\n");
 		DrvObj->DriverUnload = DriverUnload;
+		// Prepare BSOD Callback Registing
+		if (g_BSOD == 0)
+			g_BSOD = (PKBUGCHECK_CALLBACK_RECORD)ExAllocatePoolWithTag(NonPagedPool, 512, 0);
+		KeInitializeCallbackRecord(g_BSOD);
+		KeRegisterBugCheckCallback(g_BSOD, MonikaBSODCallback, NULL, 0, 0);
 		// myRAM = MmMapIoSpace(PhyRAMAddr, 32 * 1024 * 1024, MmWriteCombined);
 		status = IoCreateDeviceSecure(DrvObj, 0, &DeviceName, FILE_DEVICE_UNKNOWN, FILE_DEVICE_SECURE_OPEN, FALSE, &sddl, (LPCGUID)&DeviceGUID, &g_DeviceObj);
 		if (NT_SUCCESS(status))
