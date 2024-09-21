@@ -3,9 +3,6 @@ SharedSystemTime equ KI_USER_SHARED_DATA + 14h
 
 .data
 
-AccuTimeBuf:
-    buffer db 8 dup(0);
-
 .code _text
 
 NopToy PROC PUBLIC
@@ -16,47 +13,20 @@ ret
 
 NopToy ENDP
 
-MonikaDelayMsNative PROC PUBLIC
+MonikaDelayNanoNative PROC PUBLIC
 
-push rcx; // backup goal parameter
-
-;before we call stupid NT API, we should prepare a safer stack buffer
-push rbp;
-mov rbp, rsp;
-sub rsp, 128; // fly away 128 bytes
-;Query Current Time
-mov rcx, AccuTimeBuf
-call KeQuerySystemTime;
-;Now we can partly restore the stack
-mov rsp, rbp;
-mov rax, [AccuTimeBuf];
-push rax; // push the current time to stack
-mov rbp, rsp;
+mov rdx, SharedSystemTime ; Prepare Pointer to SharedSystemTime
+mov rbx, [rdx] ; Remember the initial time
 
 WaitLoop:
 hlt;
-;Before we call stupid NT API, we should prepare a safer stack buffer
-sub rsp, 128; // fly away 128 bytes
-;Query Current Time
-mov rcx, AccuTimeBuf
-call KeQuerySystemTime;
-;Now we can partly restore the stack
-mov rsp, rbp;
-mov rax, [AccuTimeBuf]; Current Time
-pop rbx; The Initial Time
-add rsp, 8; skip the orignal rbp bakup
-pop rcx; The Goal delay
-; Now we should put rsp to a right place
-sub rsp, 8 + 8 + 8
-sub rax, rbx; The Time Difference
-cmp rax, rcx;
+mov rax, [rdx] ; Get the current time
+sub rax, rbx ; Calculate the elapsed time
+cmp rax, rcx ; Compare with the requested delay
 jb WaitLoop;
 
-add rsp, 8
-pop rbp;
-add rsp, 8
 ret
 
-MonikaDelayMsNative ENDP
+MonikaDelayNanoNative ENDP
 
 END
