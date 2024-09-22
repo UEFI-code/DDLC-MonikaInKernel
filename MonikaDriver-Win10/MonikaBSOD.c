@@ -15,10 +15,10 @@ VOID MonikaBSODCallback(PVOID  Buffer, ULONG  Length)
 	// MonikaCreateFile(&OnBSODFile);
 	MonikaBeepInit(50);
 	MonikaBeepStart();
-	for (int i = 50; i < 2000; i+=50)
+	for (int i = 50; i < 1000; i+=200)
 	{
 		MonikaBeepInit(i);
-		MonikaDelayNanoNative(10 * 1000 * 100);
+		MonikaDelayRouglyCMOS(1);
 	}
 	MonikaBeepStop();
 	NopToy();
