@@ -1,6 +1,6 @@
 ﻿  Building 'MonikaDriver-Win10' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
   Stamping x64\Debug\MonikaDriver-Win10.inf
-  Stamping [Version] section with DriverVer=09/21/2024,16.15.53.606
+  Stamping [Version] section with DriverVer=09/22/2024,13.32.23.763
   Assembling Gidget.asm...
   main.c
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime.h(61,26): warning C4083: expected ')'; found identifier '_VCRUNTIME_DISABLED_WARNINGS'

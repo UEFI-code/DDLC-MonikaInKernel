@@ -42,4 +42,5 @@ void MonikaBeepInit(uint16_t freq);
 void MonikaBeepStart();
 void MonikaBeepStop();
 void MonikaDelayNanoNative(UINT64 t);
+void MonikaDelayRouglyCMOS(UINT8 t);
 void NopToy();
