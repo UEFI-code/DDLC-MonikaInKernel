@@ -26,6 +26,14 @@ ret
 MonikaDelayNanoNative ENDP
 
 MonikaDelayRouglyCMOS PROC PUBLIC
+; First, we need set the format to Binary mode
+mov al, 0Bh
+out 70h, al
+in al, 71h
+or al, 4
+out 71h, al
+; Now we finished the setup
+
 mov al, 0
 out 70h, al
 in al, 71h
@@ -42,7 +50,7 @@ Normal:
 sub al, bl
 cmp al, cl
 jb WaitLoop
-
+out 80h, al; Do an IO delay
 ret
 MonikaDelayRouglyCMOS ENDP
 
