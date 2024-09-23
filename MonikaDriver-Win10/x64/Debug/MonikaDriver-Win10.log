@@ -1,41 +1,7 @@
 ﻿  Building 'MonikaDriver-Win10' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
   Stamping x64\Debug\MonikaDriver-Win10.inf
-  Stamping [Version] section with DriverVer=09/22/2024,13.32.23.763
+  Stamping [Version] section with DriverVer=09/23/2024,14.57.33.710
   Assembling Gidget.asm...
-  main.c
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime.h(61,26): warning C4083: expected ')'; found identifier '_VCRUNTIME_DISABLED_WARNINGS'
-  (compiling source file 'main.c')
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime.h(111,9): warning C4005: '_CRT_STRINGIZE': macro redefinition
-  (compiling source file 'main.c')
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\km\crt\crtdefs.h(85,9):
-      see previous definition of '_CRT_STRINGIZE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime.h(114,9): warning C4005: '_CRT_WIDE': macro redefinition
-  (compiling source file 'main.c')
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\km\crt\crtdefs.h(88,9):
-      see previous definition of '_CRT_WIDE'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\vcruntime.h(155,9): warning C4005: '__CRTDECL': macro redefinition
-  (compiling source file 'main.c')
-      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\km\crt\crtdefs.h(640,9):
-      see previous definition of '__CRTDECL'
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdint.h(16,26): warning C4083: expected ')'; found identifier '_VCRUNTIME_DISABLED_WARNINGS'
-  (compiling source file 'main.c')
-  
-C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaMemory.c(4,22): warning C4047: '=': 'LONGLONG' differs in levels of indirection from 'UINT8 *'
-  (compiling source file 'main.c')
-  
-C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaMemory.c(12,2): warning C4047: 'return': 'UINT8 *' differs in levels of indirection from 'LONGLONG'
-  (compiling source file 'main.c')
-  
-C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\MonikaBSOD.c(20,18): warning C4242: 'function': conversion from 'int' to 'uint16_t', possible loss of data
-  (compiling source file 'main.c')
-  
-C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(68,48): warning C4047: 'function': 'UINT8 *' differs in levels of indirection from 'int'
-C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(68,48): warning C4024: 'MonikaMapPhysicalMemToVirtual': different types for formal and actual parameter 1
-C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\main.c(130,41): warning C4996: 'ExAllocatePoolWithTag': ExAllocatePoolWithTag is deprecated, use ExAllocatePool2.
   MonikaDriver-Win10.vcxproj -> C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys
   Done Adding Additional Store
   Successfully signed: C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDriver-Win10\x64\Debug\MonikaDriver-Win10.sys

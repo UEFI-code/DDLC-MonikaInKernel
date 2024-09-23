@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaFileSystem.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:MonikaFileSystem.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaBSOD.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:MonikaBSOD.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaMemory.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:MonikaMemory.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\Gidget.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:Gidget.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaBeep.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:MonikaBeep.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\Gidget.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:Gidget.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaBSOD.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:MonikaBSOD.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaFileSystem.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:MonikaFileSystem.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaMemory.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|solutionrelative:MonikaMemory.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4AF6DF6F-F060-4FD3-8783-0E3282FC6358}|MonikaDriver-Win10.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaDelay.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -42,19 +42,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Gidget.asm",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\Gidget.asm",
               "RelativeDocumentMoniker": "Gidget.asm",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\Gidget.asm",
               "RelativeToolTip": "Gidget.asm",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAADMAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-21T05:34:12.238Z"
+              "WhenOpened": "2024-09-21T05:34:12.238Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -70,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "main.c",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\main.c",
               "RelativeDocumentMoniker": "main.c",
@@ -94,19 +95,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MonikaBeep.asm",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaBeep.asm",
               "RelativeDocumentMoniker": "MonikaBeep.asm",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaBeep.asm",
               "RelativeToolTip": "MonikaBeep.asm",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-09-20T05:57:01.091Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "MonikaMemory.c",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaMemory.c",
               "RelativeDocumentMoniker": "MonikaMemory.c",
@@ -118,29 +119,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MonikaBSOD.c",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaBSOD.c",
               "RelativeDocumentMoniker": "MonikaBSOD.c",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaBSOD.c",
               "RelativeToolTip": "MonikaBSOD.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-20T05:57:01.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T05:57:01.093Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "MonikaFileSystem.c",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaFileSystem.c",
               "RelativeDocumentMoniker": "MonikaFileSystem.c",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDriver-Win10\\MonikaFileSystem.c",
               "RelativeToolTip": "MonikaFileSystem.c",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2024-09-20T05:57:01.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T05:57:01.094Z"
             }
           ]
         }
