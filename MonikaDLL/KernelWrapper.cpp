@@ -27,13 +27,15 @@ typedef struct
 #define RING3_REQUIRE_START_BEEP 0x90
 #define RING3_REQUIRE_STOP_BEEP 0x91
 
-__declspec(dllexport) void get_my_driver_handle()
+__declspec(dllexport) UINT8 get_my_driver_handle()
 {
     device = CreateFile(L"\\\\.\\Monika_Link", GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_SYSTEM, 0);
     if (device == INVALID_HANDLE_VALUE) {
         printf("CreateFile failed!\n");
         device = NULL;
+        return -1;
     }
+    return 0;
 }
 
 __declspec(dllexport) uint32_t MonikaBeepStart(uint16_t freq)
