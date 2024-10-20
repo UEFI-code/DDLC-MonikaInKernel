@@ -3,6 +3,7 @@ import os
 from ctypes import *
 import signal
 import sys
+import time
 
 MonikaDLL = cdll.LoadLibrary(os.getcwd() +  '\\MonikaDLL.dll')
 MonikaDLL.get_my_driver_handle.restype = c_uint8
@@ -16,6 +17,7 @@ def signal_handler(sig, frame):
     print('You pressed Ctrl+C!')
     MonikaDLL.MonikaBeepStop()
     sys.exit(0)
+
 signal.signal(signal.SIGINT, signal_handler)
 
 # Function to convert MIDI note number to frequency (Hz)
@@ -28,11 +30,13 @@ def play_beep_for_midi(note, duration_ms):
     frequency = int(midi_note_to_freq(note))  # Convert MIDI note to frequency
     print(f'Playing note {note} at {frequency} Hz for {duration_ms} ms')
     MonikaDLL.MonikaBeepStart(frequency)  # Start beep
+    time.sleep(duration_ms / 1000)  # Sleep for duration
+    MonikaDLL.MonikaBeepStop()  # Stop beep
 
 # Read MIDI file
 def play_midi_beep(file_path):
     mid = mido.MidiFile(file_path)
-    tempo = 500000  # Default tempo (microseconds per beat)
+    tempo = 50000  # Default tempo (microseconds per beat)
 
     for msg in mid.play():
         if msg.type == 'note_on' and msg.velocity > 0:  # Play note
