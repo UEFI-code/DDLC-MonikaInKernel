@@ -24,6 +24,10 @@ Differently from any type of Virus or Rootkit, this Mod is NOT designed for us t
 
 We have NO responsibility to ensure your Private Data Not Leaking or Broken, or System/Hardware Not Crash or Broken, so we suggested you to play this Mod in a independent Virtual Machine.
 
+## News
+
+- Really Beep DDLC main theme on Windows Server 2022 tested, source code is in [MonikaUI](./MonikaUI/beep_midi.py). You must start the Driver first. [Beep Video](https://youtube.com/shorts/iwA-VAJHwqA)
+
 ## Technology Problems
 
 See [our wiki](https://github.com/UEFI-code/DDLC-MonikaInKernel/wiki)
@@ -39,6 +43,8 @@ Avoid BSOD when Modify VRAM.
 All developers. Feel free to open an issues or pull requests!
 
 ## Donate
+
+It is really appreciated if you can donate to us, so we can buy some new hardware to test our Mod.
 
 BTC: 1KFXyPaYn6Arcv4PKmMcwcHqzXFducXQUm
 
@@ -57,3 +63,5 @@ https://www.renpy.org/why.html
 This Mod is the copyright of all developers, who's submition being accepted by this repo.
 
 Azure, Windows, Visual Studio are the copyright of Microsoft, and We follow the Microsoft's related Rules.
+
+```MonikaUI/ddlc_main.mid``` is downloaded from [Here](https://www.vgmusic.com/file/d572df23a5b81ae2bf39173f5adc7dc3.html) and then removed some tracks for beep purpose.
