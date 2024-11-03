@@ -100,7 +100,7 @@ typedef struct _SYSTEM_PROCESS_INFORMATION {
 bool IsThreadSafeToHijack(DWORD processId, DWORD threadId)
 {
     // Load NtQuerySystemInformation
-    HMODULE hNtdll = GetModuleHandleA("ntdll.dll");
+    static HMODULE hNtdll = GetModuleHandleA("ntdll.dll");
     if (!hNtdll)
     {
         printf("Failed to load ntdll.dll\n");
@@ -114,19 +114,19 @@ bool IsThreadSafeToHijack(DWORD processId, DWORD threadId)
         exit(1);
     }
 
-    static ULONG bufferSize = 0;
-    static PSYSTEM_PROCESS_INFORMATION processInfoBuf = NULL;
+    static ULONG bufferSize = 1024 * 1024; // !MB should be enough
+    static PSYSTEM_PROCESS_INFORMATION processInfoBuf = (PSYSTEM_PROCESS_INFORMATION)malloc(bufferSize);
 
-    if(bufferSize == 0 || !processInfoBuf)
-    {
-        NtQuerySystemInformation(SystemProcessInformation, NULL, 0, &bufferSize);
-        processInfoBuf = (PSYSTEM_PROCESS_INFORMATION)malloc(bufferSize);
-        if (!processInfoBuf)
-        {
-            printf("Failed to allocate memory for process information\n");
-            exit(1);
-        }
-    }
+    // if(bufferSize == 0 || !processInfoBuf)
+    // {
+    //     NtQuerySystemInformation(SystemProcessInformation, NULL, 0, &bufferSize);
+    //     processInfoBuf = (PSYSTEM_PROCESS_INFORMATION)malloc(bufferSize);
+    //     if (!processInfoBuf)
+    //     {
+    //         printf("Failed to allocate memory for process information\n");
+    //         exit(1);
+    //     }
+    // }
 
     if (NtQuerySystemInformation(SystemProcessInformation, processInfoBuf, bufferSize, &bufferSize) != 0)
     {
