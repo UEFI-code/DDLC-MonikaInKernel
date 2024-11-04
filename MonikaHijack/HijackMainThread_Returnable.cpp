@@ -52,53 +52,62 @@ const BYTE shellcode[] = {
     'A', 'L', 'E', 'R', 'T', 0x00,                                         // "ALERT"
 };
 
-HANDLE hProcess = NULL;
+typedef struct InjectInfo
+{
+    DWORD processId;
+    HANDLE hProcess;
+    DWORD mainThreadId;
+    HANDLE hThread;
+    LPVOID remoteMemory;
+} InjectInfo;
+
+InjectInfo targetGalgame = { 0, 0, 0, 0, 0 };
 
 // Function to get the PID of the target process by name
-DWORD GetProcessIdByName(const char* processName)
+void GetProcessIdByName(const char* processName)
 {
+    targetGalgame.processId = 0;
     PROCESSENTRY32 pe32;
     pe32.dwSize = sizeof(PROCESSENTRY32);
 
     HANDLE hProcessSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (hProcessSnap == INVALID_HANDLE_VALUE)
-        return 0;
+        return;
 
-    DWORD processId = 0;
     if (Process32First(hProcessSnap, &pe32))
     {
         do
         {
             if (strcmp(pe32.szExeFile, processName) == 0)
             {
-                processId = pe32.th32ProcessID;
+                targetGalgame.processId = pe32.th32ProcessID;
                 break;
             }
         } while (Process32Next(hProcessSnap, &pe32));
     }
 
     CloseHandle(hProcessSnap);
-    return processId;
+    return;
 }
 
 // Function to find the main thread of the target process
-DWORD GetMainThreadId(DWORD processId)
+void GetMainThreadId()
 {
+    targetGalgame.mainThreadId = 0;
     THREADENTRY32 te32;
     te32.dwSize = sizeof(THREADENTRY32);
 
     HANDLE hThreadSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
     if (hThreadSnap == INVALID_HANDLE_VALUE)
-        return 0;
+        return;
 
-    DWORD mainThreadId = 0;
     FILETIME earliestTime = { MAXDWORD, MAXDWORD };
 
     if (Thread32First(hThreadSnap, &te32))
     {
         do
         {
-            if (te32.th32OwnerProcessID == processId)
+            if (te32.th32OwnerProcessID == targetGalgame.processId)
             {
                 HANDLE hThread = OpenThread(THREAD_QUERY_INFORMATION, FALSE, te32.th32ThreadID);
                 if (hThread)
@@ -109,7 +118,7 @@ DWORD GetMainThreadId(DWORD processId)
                         if (CompareFileTime(&creationTime, &earliestTime) < 0)
                         {
                             earliestTime = creationTime;
-                            mainThreadId = te32.th32ThreadID;
+                            targetGalgame.mainThreadId = te32.th32ThreadID;
                         }
                     }
                     CloseHandle(hThread);
@@ -119,118 +128,107 @@ DWORD GetMainThreadId(DWORD processId)
     }
 
     CloseHandle(hThreadSnap);
-    return mainThreadId;
+    return;
 }
 
 // Function to inject shellcode into the target process and return the address of the remote memory
-LPVOID InjectShellcode(DWORD processId)
+void InjectShellcode()
 {
-    hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, processId);
-    if (!hProcess)
+    targetGalgame.remoteMemory = NULL;
+    targetGalgame.hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, targetGalgame.processId);
+    if (!targetGalgame.hProcess)
     {
-        printf("Failed to open process with PID %lu\n", processId);
-        return NULL;
+        printf("Failed to open process with PID %lu\n", targetGalgame.processId);
+        return;
     }
-
     // Allocate memory in the target process
-    LPVOID remoteMemory = VirtualAllocEx(hProcess, NULL, sizeof(shellcode), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
-    if (!remoteMemory)
+    targetGalgame.remoteMemory = VirtualAllocEx(targetGalgame.hProcess, NULL, sizeof(shellcode), MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+    if (!targetGalgame.remoteMemory)
     {
         printf("Failed to allocate memory in the target process\n");
-        CloseHandle(hProcess);
-        hProcess = NULL;
-        return NULL;
+        CloseHandle(targetGalgame.hProcess);
+        targetGalgame.hProcess = NULL;
+        return;
     }
-    printf("Allocated RWX memory at address: 0x%p\n", remoteMemory);
-
+    printf("Allocated RWX memory at address: 0x%p\n", targetGalgame.remoteMemory);
     // Write the shellcode to the allocated memory
-    if (!WriteProcessMemory(hProcess, remoteMemory, shellcode, sizeof(shellcode), NULL))
-    {
-        printf("Failed to write shellcode to the allocated memory\n");
-        VirtualFreeEx(hProcess, remoteMemory, 0, MEM_RELEASE);
-        CloseHandle(hProcess);
-        hProcess = NULL;
-        return NULL;
-    }
+    WriteProcessMemory(targetGalgame.hProcess, targetGalgame.remoteMemory, shellcode, sizeof(shellcode), NULL);
     printf("Shellcode written to remote memory successfully\n");
-    return remoteMemory;
+    return;
 }
 
 // Function to hijack the main thread and set its RIP to the injected shellcode
-bool HijackMainThread(DWORD mainThreadId, LPVOID shellcodeAddress)
+void HijackMainThread()
 {
-    HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, mainThreadId);
-    if (!hThread)
+    targetGalgame.hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, targetGalgame.mainThreadId);
+    if (!targetGalgame.hThread)
     {
-        printf("Failed to open main thread with TID %lu\n", mainThreadId);
-        return false;
+        printf("Failed to open main thread with TID %lu\n", targetGalgame.mainThreadId);
+        return;
     }
 
     // Suspend the thread and get its context
-    SuspendThread(hThread);
-    printf("Suspended main thread with TID %lu\n", mainThreadId);
+    SuspendThread(targetGalgame.hThread);
+    printf("Suspended main thread with TID %lu\n", targetGalgame.mainThreadId);
 
     CONTEXT ctx;
     ctx.ContextFlags = CONTEXT_FULL;
-    if (GetThreadContext(hThread, &ctx))
+    if (GetThreadContext(targetGalgame.hThread, &ctx))
     {
         printf("Original RIP: 0x%p\n", (LPVOID)ctx.Rip);
         // Backup to RSP
         ctx.Rsp -= sizeof(LPVOID);
         // Write the original RIP to the stack
-        WriteProcessMemory(hProcess, (LPVOID)ctx.Rsp, &ctx.Rip, sizeof(LPVOID), NULL);
+        WriteProcessMemory(targetGalgame.hProcess, (LPVOID)ctx.Rsp, &ctx.Rip, sizeof(LPVOID), NULL);
         printf("Original RIP Pushed to Stack: 0x%p\n", (LPVOID)ctx.Rsp);
 
         // Set RIP to the shellcode address
-        ctx.Rip = (DWORD64)shellcodeAddress;
-        printf("Hijacking RIP to address: 0x%p\n", shellcodeAddress);
+        ctx.Rip = (DWORD64)targetGalgame.remoteMemory;
+        printf("Hijacking RIP to address: 0x%p\n", targetGalgame.remoteMemory);
 
         // Update the thread context
-        if (!SetThreadContext(hThread, &ctx))
-        {
-            printf("Failed to set thread context\n");
-            ResumeThread(hThread);
-            CloseHandle(hThread);
-            return false;
-        }
+        SetThreadContext(targetGalgame.hThread, &ctx);
     }
     else
     {
         printf("Failed to get thread context\n");
-        ResumeThread(hThread);
-        CloseHandle(hThread);
-        return false;
+        ResumeThread(targetGalgame.hThread);
+        CloseHandle(targetGalgame.hThread);
+        targetGalgame.hThread = NULL;
+        return;
     }
 
     // Resume the thread
-    ResumeThread(hThread);
-    printf("Resumed main thread with TID %lu\n", mainThreadId);
-    CloseHandle(hThread);
-    return true;
+    ResumeThread(targetGalgame.hThread);
+    printf("Resumed main thread with TID %lu\n", targetGalgame.mainThreadId);
+    CloseHandle(targetGalgame.hThread);
+    return;
 }
 
 int main()
 {
     const char* targetProcessName = "target.exe"; // Replace with your target process name
-    DWORD processId = GetProcessIdByName(targetProcessName);
+    GetProcessIdByName(targetProcessName);
 
-    if (processId)
+    if (targetGalgame.processId)
     {
-        printf("Target process \"%s\" found with PID %lu\n", targetProcessName, processId);
+        printf("Target process \"%s\" found with PID %lu\n", targetProcessName, targetGalgame.processId);
 
         // Inject shellcode and get the remote memory address
-        LPVOID remoteMemory = InjectShellcode(processId);
-        if (remoteMemory)
+        InjectShellcode();
+        if (targetGalgame.remoteMemory)
         {
+            printf("Shellcode injected successfully.\n");
             // Get the main thread ID
-            DWORD mainThreadId = GetMainThreadId(processId);
-            if (mainThreadId)
+            GetMainThreadId();
+            if (targetGalgame.mainThreadId)
             {
-                printf("Main thread found with TID %lu\n", mainThreadId);
+                printf("Main thread found with TID %lu\n", targetGalgame.mainThreadId);
 
                 // Hijack the main thread
-                if (HijackMainThread(mainThreadId, remoteMemory))
-                    printf("Shellcode injected and main thread hijacked successfully.\n");
+                HijackMainThread();
+                if (targetGalgame.hThread)
+                    printf("Main thread hijacked successfully.\n");
                 else
                     printf("Failed to hijack main thread.\n");
             }
@@ -238,6 +236,11 @@ int main()
             {
                 printf("Failed to find main thread.\n");
             }
+            // clean up, this might cause the target process glitch due to RWX memory being released
+            //VirtualFreeEx(targetGalgame.hProcess, targetGalgame.remoteMemory, 0, MEM_RELEASE);
+            //targetGalgame.remoteMemory = NULL;
+            CloseHandle(targetGalgame.hProcess);
+            targetGalgame.hProcess = NULL;
         }
         else
         {
