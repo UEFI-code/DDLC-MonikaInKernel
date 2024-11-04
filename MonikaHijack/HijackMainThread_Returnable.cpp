@@ -179,7 +179,6 @@ void InjectShellcode()
     printf("Allocated RWX memory at address: 0x%p\n", targetGalgame.remotePayloadMemory);
     // Write the MonikaPayload to the allocated memory
     WriteProcessMemory(targetGalgame.hProcess, targetGalgame.remotePayloadMemory, MonikaPayload, sizeof(MonikaPayload), NULL);
-    printf("Shellcode written to remote memory successfully\n");
     return;
 }
 
@@ -268,14 +267,23 @@ int main()
 
     // Get the target process ID
     GetProcessIdByName(targetProcessName);
-
     if (!targetGalgame.processId)
     {
         printf("Target process \"%s\" not found.\n", targetProcessName);
         return 0;
     }
-
     printf("Target process \"%s\" found with PID %lu\n", targetProcessName, targetGalgame.processId);
+
+    // Get the main thread ID
+    GetMainThreadId();
+    if (!targetGalgame.mainThreadId)
+    {
+        printf("Failed to find main thread.\n");
+        CloseHandle(targetGalgame.hProcess);
+        targetGalgame.hProcess = NULL;
+        return 0;
+    }
+    printf("Main thread found with TID %lu\n", targetGalgame.mainThreadId);
 
     targetGalgame.hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, targetGalgame.processId);
     if (!targetGalgame.hProcess)
@@ -292,7 +300,6 @@ int main()
 
     // Inject MonikaPayload and get the remote memory address
     InjectShellcode();
-
     if (!targetGalgame.remotePayloadMemory)
     {
         printf("Failed to inject MonikaPayload.\n");
@@ -300,25 +307,10 @@ int main()
         targetGalgame.hProcess = NULL;
         return 0;
     }
-
     printf("Shellcode injected successfully.\n");
-
-    // Get the main thread ID
-    GetMainThreadId();
-
-    if (!targetGalgame.mainThreadId)
-    {
-        printf("Failed to find main thread.\n");
-        CloseHandle(targetGalgame.hProcess);
-        targetGalgame.hProcess = NULL;
-        return 0;
-    }
-
-    printf("Main thread found with TID %lu\n", targetGalgame.mainThreadId);
 
     // Hijack the main thread
     HijackMainThread();
-
     if (!targetGalgame.hThread)
     {
         printf("Failed to hijack main thread.\n");
@@ -332,7 +324,6 @@ int main()
     // Note: Releasing RWX memory may cause glitches in the target process
     // VirtualFreeEx(targetGalgame.hProcess, targetGalgame.remotePayloadMemory, 0, MEM_RELEASE);
     // targetGalgame.remotePayloadMemory = NULL;
-
     CloseHandle(targetGalgame.hProcess);
     targetGalgame.hProcess = NULL;
 
