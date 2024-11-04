@@ -205,10 +205,11 @@ __declspec(dllexport) UINT8 injectX64Gal(char *targetEXE)
         printf("Failed to inject MonikaPayload.\n");
         return -1;
     }
+    printf("MonikaPayload injected successfully.\n");
     
     // Hijack the main thread
     if (HijackMainThread(hProcess, mainThreadId, remoteMemory) == 0)
-        printf("MonikaPayload injected and main thread hijacked successfully.\n");
+        printf("Main thread hijacked successfully.\n");
     else
         printf("Failed to hijack main thread.\n");
     
