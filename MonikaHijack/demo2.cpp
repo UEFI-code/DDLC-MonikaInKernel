@@ -4,6 +4,8 @@
 
 // Corrected Shellcode to inject
 const BYTE shellcode[] = {
+    0x55,                          // push rbp
+    0x48, 0x8B, 0xEC,              // mov rbp, rsp
     0xE8, 0x00, 0x00, 0x00, 0x00,  // call $+5 (self-relative)
     0x5A,                          // pop rdx
     0x48, 0x83, 0xC2, 0x21,        // add rdx, 0x21 (adjust rdx to point to "JUST Monika!")
@@ -13,6 +15,7 @@ const BYTE shellcode[] = {
     0x4D, 0x31, 0xC9,              // xor r9, r9 (uType = MB_OK)
     0x48, 0xB8, 0x60, 0xE0, 0x94, 0x1A, 0xFC, 0x7F, 0x00, 0x00, // mov rax, <MessageBoxA address>
     0xFF, 0xD0,                    // call rax (call MessageBoxA)
+    0x5D,                          // pop rbp
     0xC3,                          // ret
     0x90, 0x90,                    // nop nop (padding)
     // MessageBox strings (null-terminated)
