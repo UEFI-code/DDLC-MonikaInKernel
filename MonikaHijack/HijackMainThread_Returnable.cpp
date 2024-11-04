@@ -260,61 +260,81 @@ void GetTargetMsgBoxA_Routine()
 
 int main()
 {
+    // Update Gidget_Shellcode with function addresses
     *(UINT64 *)(Gidget_Shellcode + 20) = (UINT64)LoadLibraryA;
     *(UINT64 *)(Gidget_Shellcode + 45) = (UINT64)GetProcAddress;
 
     const char* targetProcessName = "target.exe"; // Replace with your target process name
+
+    // Get the target process ID
     GetProcessIdByName(targetProcessName);
 
-    if (targetGalgame.processId)
+    if (!targetGalgame.processId)
     {
-        printf("Target process \"%s\" found with PID %lu\n", targetProcessName, targetGalgame.processId);
-        targetGalgame.hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, targetGalgame.processId);
-        if (!targetGalgame.hProcess)
-        {
-            printf("Failed to open process handle\n");
-            return 0;
-        }
-        GetTargetMsgBoxA_Routine();
-        // Update MonikaPayload with Target MessageBoxA address
-        *(UINT64 *)(MonikaPayload + 55) = *(UINT64 *)(Gidget_Shellcode + sizeof(Gidget_Shellcode) - 8);
-        // Inject MonikaPayload and get the remote memory address
-        InjectShellcode();
-        if (targetGalgame.remotePayloadMemory)
-        {
-            printf("Shellcode injected successfully.\n");
-            // Get the main thread ID
-            GetMainThreadId();
-            if (targetGalgame.mainThreadId)
-            {
-                printf("Main thread found with TID %lu\n", targetGalgame.mainThreadId);
+        printf("Target process \"%s\" not found.\n", targetProcessName);
+        return 0;
+    }
 
-                // Hijack the main thread
-                HijackMainThread();
-                if (targetGalgame.hThread)
-                    printf("Main thread hijacked successfully.\n");
-                else
-                    printf("Failed to hijack main thread.\n");
-            }
-            else
-            {
-                printf("Failed to find main thread.\n");
-            }
-            // clean up, this might cause the target process glitch due to RWX memory being released
-            //VirtualFreeEx(targetGalgame.hProcess, targetGalgame.remotePayloadMemory, 0, MEM_RELEASE);
-            //targetGalgame.remotePayloadMemory = NULL;
-            CloseHandle(targetGalgame.hProcess);
-            targetGalgame.hProcess = NULL;
-        }
-        else
-        {
-            printf("Failed to inject MonikaPayload.\n");
-        }
+    printf("Target process \"%s\" found with PID %lu\n", targetProcessName, targetGalgame.processId);
+
+    targetGalgame.hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, targetGalgame.processId);
+    if (!targetGalgame.hProcess)
+    {
+        printf("Failed to open process handle\n");
+        return 0;
+    }
+
+    // Retrieve the target MessageBoxA routine
+    GetTargetMsgBoxA_Routine();
+
+    // Update MonikaPayload with the Target MessageBoxA address
+    *(UINT64 *)(MonikaPayload + 55) = *(UINT64 *)(Gidget_Shellcode + sizeof(Gidget_Shellcode) - 8);
+
+    // Inject MonikaPayload and get the remote memory address
+    InjectShellcode();
+
+    if (!targetGalgame.remotePayloadMemory)
+    {
+        printf("Failed to inject MonikaPayload.\n");
+        CloseHandle(targetGalgame.hProcess);
+        targetGalgame.hProcess = NULL;
+        return 0;
+    }
+
+    printf("Shellcode injected successfully.\n");
+
+    // Get the main thread ID
+    GetMainThreadId();
+
+    if (!targetGalgame.mainThreadId)
+    {
+        printf("Failed to find main thread.\n");
+        CloseHandle(targetGalgame.hProcess);
+        targetGalgame.hProcess = NULL;
+        return 0;
+    }
+
+    printf("Main thread found with TID %lu\n", targetGalgame.mainThreadId);
+
+    // Hijack the main thread
+    HijackMainThread();
+
+    if (!targetGalgame.hThread)
+    {
+        printf("Failed to hijack main thread.\n");
     }
     else
     {
-        printf("Target process \"%s\" not found.\n", targetProcessName);
+        printf("Main thread hijacked successfully.\n");
     }
+
+    // Clean up
+    // Note: Releasing RWX memory may cause glitches in the target process
+    // VirtualFreeEx(targetGalgame.hProcess, targetGalgame.remotePayloadMemory, 0, MEM_RELEASE);
+    // targetGalgame.remotePayloadMemory = NULL;
+
+    CloseHandle(targetGalgame.hProcess);
+    targetGalgame.hProcess = NULL;
 
     return 0;
 }
