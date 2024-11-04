@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "InjectX64Galgame.cpp",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX64Galgame.cpp",
               "RelativeToolTip": "InjectX64Galgame.cpp",
-              "ViewState": "AgIAAMkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-04T10:35:02.895Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "ProcessGadgit.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-04T09:50:11.458Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T09:50:11.458Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "KernelWrapper.cpp",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-20T08:33:30.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-20T08:33:30.682Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "dllmain.cpp",
               "ViewState": "AgIAABIAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-26T04:16:01.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-26T04:16:01.456Z"
             }
           ]
         }

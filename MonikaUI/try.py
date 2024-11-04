@@ -13,3 +13,9 @@ p_msg = create_string_buffer(msg)
 p_title = create_string_buffer(title)
 
 print(MonikaDLL.MonikaMsg(p_msg, p_title, typ))
+
+print('Now lets check hijack other x64 process')
+
+target_process = input("Enter target process name: ").encode('utf-8')
+p_target_process = create_string_buffer(target_process)
+MonikaDLL.injectX64Gal(p_target_process)
