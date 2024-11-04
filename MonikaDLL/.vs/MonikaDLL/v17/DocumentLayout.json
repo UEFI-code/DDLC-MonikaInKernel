@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX64Galgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:InjectX64Galgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\ProcessGadgit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:ProcessGadgit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\KernelWrapper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:KernelWrapper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -23,27 +31,54 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "InjectX64Galgame.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX64Galgame.cpp",
+              "RelativeDocumentMoniker": "InjectX64Galgame.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX64Galgame.cpp",
+              "RelativeToolTip": "InjectX64Galgame.cpp",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T10:35:02.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProcessGadgit.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\ProcessGadgit.cpp",
+              "RelativeDocumentMoniker": "ProcessGadgit.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\ProcessGadgit.cpp",
+              "RelativeToolTip": "ProcessGadgit.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-04T09:50:11.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "KernelWrapper.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\KernelWrapper.cpp",
               "RelativeDocumentMoniker": "KernelWrapper.cpp",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\KernelWrapper.cpp",
               "RelativeToolTip": "KernelWrapper.cpp",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAAgAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-20T08:33:30.682Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "dllmain.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp",
               "RelativeDocumentMoniker": "dllmain.cpp",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp",
               "RelativeToolTip": "dllmain.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAALAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-26T04:16:01.456Z"
+              "WhenOpened": "2024-08-26T04:16:01.456Z",
+              "EditorCaption": ""
             }
           ]
         }

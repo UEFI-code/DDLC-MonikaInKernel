@@ -1,3 +1,5 @@
 C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\dllmain.cpp;C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\MonikaDLL\x64\Release\dllmain.obj
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\InjectX64Galgame.cpp;C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\MonikaDLL\x64\Release\InjectX64Galgame.obj
 C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\KernelWrapper.cpp;C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\MonikaDLL\x64\Release\KernelWrapper.obj
 C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\pch.cpp;C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\MonikaDLL\x64\Release\pch.obj
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\ProcessGadgit.cpp;C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\MonikaDLL\x64\Release\ProcessGadgit.obj
