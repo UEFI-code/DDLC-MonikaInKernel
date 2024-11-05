@@ -22,8 +22,8 @@ BYTE MonikaPayload[] = {
     0x48, 0x83, 0xEC, 0x28,        // sub rsp, 0x28 (MessageBoxA Strictly requires 32-byte aligned stack)
     0xE8, 0x00, 0x00, 0x00, 0x00,  // call $+5 (self-relative)
     0x5A,                          // pop rdx
-    0x48, 0x83, 0xC2, 0x3C,        // add rdx, 0x3C (adjust rdx to point to "JUST Monika!")
-    0x48, 0x31, 0xC9,              // xor rcx, rcx (HWND = NULL)
+    0x48, 0x83, 0xC2, 0x43,        // add rdx, 0x43 (adjust rdx to point to "JUST Monika!")
+    0x48, 0xB9, 0,0,0,0,0,0,0,0,   // mov rcx, 0
     0x4C, 0x8B, 0xC2,              // mov r8, rdx (R8 = address of "JUST Monika!")
     0x49, 0x83, 0xC0, 0x0d,        // add r8, 0x0d (adjust R8 to point to "ALERT")
     0x4D, 0x31, 0xC9,              // xor r9, r9 (uType = MB_OK)
@@ -88,9 +88,10 @@ typedef struct InjectInfo
     HANDLE hThread;
     LPVOID remoteGadgetMemory;
     LPVOID remotePayloadMemory;
+    HWND targetHwnd;
 } InjectInfo;
 
-InjectInfo targetGalgame = { 0, 0, 0, 0, 0, 0 };
+InjectInfo targetGalgame = { 0, 0, 0, 0, 0, 0, 0 };
 
 // Function to get the PID of the target process by name
 void GetProcessIdByName(const char* processName)
@@ -257,6 +258,23 @@ void GetTargetMsgBoxA_Routine()
     printf("MessageBoxA Address in Target: 0x%p\n", *(UINT64 *)((UINT64)Gidget_Shellcode + sizeof(Gidget_Shellcode) - 8));
 }
 
+// Callback function for EnumWindows
+BOOL CALLBACK EnumWindowsCallback(HWND hwnd, LPARAM lParam)
+{
+    targetGalgame.targetHwnd = NULL;
+    DWORD processId;
+    GetWindowThreadProcessId(hwnd, &processId);
+
+    if (processId == targetGalgame.processId)
+    {
+        // We found a window that belongs to the target process
+        targetGalgame.targetHwnd = hwnd;
+        return FALSE; // Stop enumeration
+    }
+
+    return TRUE; // Continue enumeration
+}
+
 int main()
 {
     // Update Gidget_Shellcode with function addresses
@@ -296,7 +314,14 @@ int main()
     GetTargetMsgBoxA_Routine();
 
     // Update MonikaPayload with the Target MessageBoxA address
-    *(UINT64 *)(MonikaPayload + 55) = *(UINT64 *)(Gidget_Shellcode + sizeof(Gidget_Shellcode) - 8);
+    *(UINT64 *)(MonikaPayload + 62) = *(UINT64 *)(Gidget_Shellcode + sizeof(Gidget_Shellcode) - 8);
+
+    // Get Window Handle of the target process
+    EnumWindows(EnumWindowsCallback, 0);
+    printf("Window Handle of the target process: 0x%p\n", targetGalgame.targetHwnd);
+
+    // Update MonikaPayload with the target window handle
+    *(UINT64 *)(MonikaPayload + 42) = (UINT64)targetGalgame.targetHwnd;
 
     // Inject MonikaPayload and get the remote memory address
     InjectShellcode();

