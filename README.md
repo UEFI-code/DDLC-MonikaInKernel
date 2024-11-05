@@ -26,11 +26,17 @@ We have NO responsibility to ensure your Private Data Not Leaking or Broken, or 
 
 ## News
 
+See [our wiki](https://github.com/UEFI-code/DDLC-MonikaInKernel/wiki) has some screenshots for development approch.
+
 - Really Beep DDLC main theme on Windows Server 2022 tested, source code is in [MonikaUI](./MonikaUI/beep_midi.py). You must start the Driver first. [Beep Video](https://youtube.com/shorts/iwA-VAJHwqA)
+
+- Hijack Other Galgames, display Monika's face on the screen, or pop Alert MessageBox.
+
+Some new features are not intergrated yet.
 
 ## Technology Problems
 
-See [our wiki](https://github.com/UEFI-code/DDLC-MonikaInKernel/wiki)
+Also See [our wiki](https://github.com/UEFI-code/DDLC-MonikaInKernel/wiki)
 
 Animate object detection training sets.
 
