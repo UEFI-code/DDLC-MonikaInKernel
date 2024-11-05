@@ -28,8 +28,8 @@ static BYTE MonikaPayload_NO_CRASH[] = {
     0x48, 0x83, 0xEC, 0x28,        // sub rsp, 0x28 (MessageBoxA Strictly requires 32-byte aligned stack)
     0xE8, 0x00, 0x00, 0x00, 0x00,  // call $+5 (self-relative)
     0x5A,                          // pop rdx
-    0x48, 0x83, 0xC2, 0x3C,        // add rdx, 0x3C (adjust rdx to point to "JUST Monika!")
-    0x48, 0x31, 0xC9,              // xor rcx, rcx (HWND = NULL)
+    0x48, 0x83, 0xC2, 0x43,        // add rdx, 0x43 (adjust rdx to point to "JUST Monika!")
+    0x48, 0xB9, 0,0,0,0,0,0,0,0,   // mov rcx, 0
     0x4C, 0x8B, 0xC2,              // mov r8, rdx (R8 = address of "JUST Monika!")
     0x49, 0x83, 0xC0, 0x0d,        // add r8, 0x0d (adjust R8 to point to "ALERT")
     0x4D, 0x31, 0xC9,              // xor r9, r9 (uType = MB_OK)
@@ -89,6 +89,7 @@ static BYTE Gidget_Shellcode[] = {
 DWORD GetProcessIdByName(const char* processName);
 DWORD GetMainThreadId(DWORD processId);
 LPVOID InjectShellcode(HANDLE hProcess, UINT8 *buf, UINT64 bufsize);
+HWND GetTargetWindowHandleByPID(DWORD processId);
 
 // Function to hijack the main thread and set its RIP to the injected MonikaPayload
 static UINT8 HijackMainThread(HANDLE hProcess, DWORD mainThreadId, LPVOID remotePayloadMemory)
@@ -166,6 +167,10 @@ static void GetTargetMsgBoxA_Routine(HANDLE hProcess)
 
 __declspec(dllexport) UINT8 injectX64Gal(char *targetEXE)
 {
+    // Update Gidget_Shellcode with function addresses
+    *(UINT64 *)(Gidget_Shellcode + 20) = (UINT64)LoadLibraryA;
+    *(UINT64 *)(Gidget_Shellcode + 45) = (UINT64)GetProcAddress;
+    
     // Get the PID of the target process
     DWORD processId = GetProcessIdByName(targetEXE);
     if (!processId)
@@ -196,8 +201,20 @@ __declspec(dllexport) UINT8 injectX64Gal(char *targetEXE)
     GetTargetMsgBoxA_Routine(hProcess);
 
     // Update MonikaPayload with target MessageBoxA address
-    *(UINT64 *)(MonikaPayload_NO_CRASH + 55) = *(UINT64 *)(Gidget_Shellcode + sizeof(Gidget_Shellcode) - 8);
+    *(UINT64 *)(MonikaPayload_NO_CRASH + 62) = *(UINT64 *)(Gidget_Shellcode + sizeof(Gidget_Shellcode) - 8);
     
+    // Get Target Window Handle
+    HWND targetHwnd = GetTargetWindowHandleByPID(processId);
+    if (!targetHwnd)
+    {
+        printf("Failed to get target window handle\n");
+        return -1;
+    }
+    printf("Target window handle: 0x%p\n", targetHwnd);
+
+    // Update MonikaPayload with target window handle
+    *(UINT64 *)(MonikaPayload_NO_CRASH + 42) = (UINT64)targetHwnd;
+
     // Inject MonikaPayload into the target process and get the address of the remote memory
     LPVOID remoteMemory = InjectShellcode(hProcess, MonikaPayload_NO_CRASH, sizeof(MonikaPayload_NO_CRASH));
     if (!remoteMemory)
