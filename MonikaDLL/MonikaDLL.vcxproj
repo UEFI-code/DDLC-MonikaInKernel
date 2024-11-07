@@ -156,7 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="InjectGalgame.cpp" />
     <ClCompile Include="InjectX64Galgame.cpp" />
+    <ClCompile Include="InjectX86Galgame.cpp" />
     <ClCompile Include="KernelWrapper.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

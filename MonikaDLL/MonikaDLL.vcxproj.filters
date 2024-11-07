@@ -38,5 +38,11 @@
     <ClCompile Include="InjectX64Galgame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InjectX86Galgame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InjectGalgame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
