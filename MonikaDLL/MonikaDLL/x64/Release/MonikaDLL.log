@@ -1,11 +1,11 @@
 ﻿  InjectX64Galgame.cpp
-C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\InjectX64Galgame.cpp(165,12): warning C4477: 'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 1 has type 'UINT64'
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\InjectX64Galgame.cpp(164,12): warning C4477: 'printf' : format string '%p' requires an argument of type 'void *', but variadic argument 1 has type 'UINT64'
   (compiling source file '/InjectX64Galgame.cpp')
   
      Creating library C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\x64\Release\MonikaDLL.lib and object C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\x64\Release\MonikaDLL.exp
   Generating code
-C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\InjectX64Galgame.cpp(234): warning C4715: 'injectX64Gal': not all control paths return a value
-  1 of 20 functions ( 5.0%) were compiled, the rest were copied from previous compilation.
+C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\InjectX64Galgame.cpp(251): warning C4715: 'injectX64Gal': not all control paths return a value
+  2 of 21 functions ( 9.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

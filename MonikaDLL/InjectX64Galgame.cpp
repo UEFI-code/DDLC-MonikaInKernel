@@ -90,20 +90,26 @@ DWORD GetProcessIdByName(const char* processName);
 DWORD GetMainThreadId(DWORD processId);
 LPVOID InjectShellcode(HANDLE hProcess, UINT8 *buf, UINT64 bufsize);
 HWND GetTargetWindowHandleByPID(DWORD processId);
+void DrawImageOnWindow(HWND hwnd, const char* imageFile);
 
 // Function to hijack the main thread and set its RIP to the injected MonikaPayload
-static UINT8 HijackMainThread(HANDLE hProcess, DWORD mainThreadId, LPVOID remotePayloadMemory)
+static UINT8 HijackMainThread(HANDLE hProcess, HANDLE hThread, LPVOID remotePayloadMemory)
 {
-    HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, mainThreadId);
-    if (!hThread)
+    if(!hProcess)
     {
-        printf("Failed to open main thread with TID %lu\n", mainThreadId);
+        printf("Invalid process handle\n");
         return -1;
     }
-
-    // Suspend the thread and get its context
-    SuspendThread(hThread);
-    printf("Suspended main thread with TID %lu\n", mainThreadId);
+    if(!hThread)
+    {
+        printf("Invalid thread handle\n");
+        return -1;
+    }
+    if(!remotePayloadMemory)
+    {
+        printf("Invalid remote memory address\n");
+        return -1;
+    }
 
     CONTEXT ctx;
     ctx.ContextFlags = CONTEXT_FULL;
@@ -122,20 +128,13 @@ static UINT8 HijackMainThread(HANDLE hProcess, DWORD mainThreadId, LPVOID remote
 
         // Update the thread context
         SetThreadContext(hThread, &ctx);
+        return 0;
     }
     else
     {
         printf("Failed to get thread context\n");
-        ResumeThread(hThread);
-        CloseHandle(hThread);
         return -1;
     }
-
-    // Resume the thread
-    ResumeThread(hThread);
-    printf("Resumed main thread with TID %lu\n", mainThreadId);
-    CloseHandle(hThread);
-    return 0;
 }
 
 static void GetTargetMsgBoxA_Routine(HANDLE hProcess)
@@ -165,7 +164,7 @@ static void GetTargetMsgBoxA_Routine(HANDLE hProcess)
     printf("MessageBoxA Address in Target: 0x%p\n", *(UINT64 *)((UINT64)Gidget_Shellcode + sizeof(Gidget_Shellcode) - 8));
 }
 
-__declspec(dllexport) UINT8 injectX64Gal(char *targetEXE)
+__declspec(dllexport) UINT8 injectX64Gal(char *targetEXE, const char *bmp_path)
 {
     // Update Gidget_Shellcode with function addresses
     *(UINT64 *)(Gidget_Shellcode + 20) = (UINT64)LoadLibraryA;
@@ -223,13 +222,31 @@ __declspec(dllexport) UINT8 injectX64Gal(char *targetEXE)
         return -1;
     }
     printf("MonikaPayload injected successfully.\n");
+
+    // open main thread
+    HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, mainThreadId);
+    if (!hThread)
+    {
+        printf("Failed to open main thread with TID %lu\n", mainThreadId);
+        return -1;
+    }
+    SuspendThread(hThread);
+    printf("Main thread suspended.\n");
+
+    // Replace Target Window content with image
+    DrawImageOnWindow(targetHwnd, bmp_path);
     
     // Hijack the main thread
-    if (HijackMainThread(hProcess, mainThreadId, remoteMemory) == 0)
+    if (HijackMainThread(hProcess, hThread, remoteMemory) == 0)
         printf("Main thread hijacked successfully.\n");
     else
         printf("Failed to hijack main thread.\n");
+
+    // Resume the main thread
+    ResumeThread(hThread);
+    printf("Main thread resumed.\n");
     
+    CloseHandle(hThread);
     CloseHandle(hProcess);
 }
 }
