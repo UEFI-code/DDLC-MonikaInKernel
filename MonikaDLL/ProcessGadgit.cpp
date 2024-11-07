@@ -15,6 +15,12 @@ DWORD GetProcessIdByName(const char* processName)
     size_t processNameLen = strlen(processName) + 1;
     wchar_t* processNameW = (wchar_t*)malloc(processNameLen * sizeof(wchar_t));
     mbstowcs(processNameW, processName, processNameLen);
+    // lowercase the process name
+    for (size_t i = 0; i < processNameLen; i++)
+    {
+        if (processNameW[i] >= 'A' && processNameW[i] <= 'Z')
+            processNameW[i] += 32;
+    }
 
     DWORD processId = 0;
     PROCESSENTRY32 pe32;
@@ -28,6 +34,12 @@ DWORD GetProcessIdByName(const char* processName)
     {
         do
         {
+            // lowercase the process name
+            for (size_t i = 0; i < MAX_PATH; i++)
+            {
+                if (pe32.szExeFile[i] >= 'A' && pe32.szExeFile[i] <= 'Z')
+                    pe32.szExeFile[i] += 32;
+            }
             if (wcscmp(pe32.szExeFile, processNameW) == 0)
             {
                 processId = pe32.th32ProcessID;
