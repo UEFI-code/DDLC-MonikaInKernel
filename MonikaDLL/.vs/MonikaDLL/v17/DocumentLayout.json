@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "InjectGalgame.cpp",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectGalgame.cpp",
               "RelativeToolTip": "InjectGalgame.cpp",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-07T08:54:12.487Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "InjectX86Galgame.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-07T08:42:54.762Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T08:42:54.762Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "InjectX64Galgame.cpp",
               "ViewState": "AgIAAKIAAAAAAAAAAAAvwLIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-04T10:35:02.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T10:35:02.895Z"
             },
             {
               "$type": "Document",
