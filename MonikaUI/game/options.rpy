@@ -215,6 +215,7 @@ init python:
 
     build.classify("game/**.jpg", "images")
     build.classify("game/**.png", "images")
+    build.classify("game/**.bmp", "images")
 
     build.classify("game/**.rpyc", "scripts")
     build.classify("game/**.txt", "scripts")

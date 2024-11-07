@@ -844,6 +844,8 @@ label ch30_loop:
 
     call chk_dll_and_driver
 
+    call chk_other_galgame
+
     if persistent.current_monikatopic != 0:
         m "Now, where was I...?"
         $ pause(4.0)
@@ -918,8 +920,76 @@ label chk_dll_and_driver:
         
         call updateconsole("myDLL.load()", "MonikaDLL.dll loaded successfully")
         m "Thank you, [player]."
-        return
+    return
 
+label chk_other_galgame:
+    $ find_other_gal = False
+    python:
+        try:
+            renpy.file(config.basedir + "/monika.bmp")
+        except:
+            open(config.basedir + "/monika.bmp", "wb").write(renpy.file("monika.bmp").read())
+        galgame_list = [
+            "target.exe",
+            "Fate.exe",                   # Fate/stay night
+            "CLANNAD.exe",                # CLANNAD
+            "STEINS;GATE.exe",            # Steins;Gate
+            "STEINS;GATE_steam.exe",      # Steins;Gate (Steam)
+            "LittleBusters.exe",          # Little Busters!
+            "HigurashiEp1to4.exe",        # Higurashi When They Cry (Episodes 1 to 4)
+            "HigurashiEp5to8.exe",        # Higurashi When They Cry (Episodes 5 to 8)
+            "Katawa Shoujo.exe",          # Katawa Shoujo
+            "Rewrite.exe",                # Rewrite
+            "umineko1to4.exe",            # Umineko When They Cry (Episodes 1 to 4)
+            "umineko5to8.exe",            # Umineko When They Cry (Episodes 5 to 8)
+            "Grisaia.exe",                # The Fruit of Grisaia
+            "planetarian.exe",            # Planetarian
+            "AIR.exe",                    # AIR
+            "WA2.exe",                    # White Album 2
+            "SchoolDaysHQ.exe",           # School Days HQ
+            "CHAOSHEAD.exe",              # Chaos;Head
+            "MuvLuv.exe",                 # Muv-Luv
+            "Ever17.exe",                 # Ever17
+            "narcissu.exe",               # Narcissu
+            "Tsukihime.exe",              # Tsukihime
+            "ef.exe"                      # Ef: A Fairy Tale of the Two
+        ]
+
+        # find out which galgame is running
+        for galgame in galgame_list:
+            # inject
+            res = myDLL.injectGal(galgame)
+            if res == 0:
+                find_other_gal = True
+        try:
+            os.remove(config.basedir + "/monika.bmp")
+        except:
+            pass
+    if find_other_gal:
+        if myDLL.otherGalgameFindTimes == 0:
+            m "You are playing another galgame, right?"
+            m "..."
+            m "I'm a little bit jealous."
+            m "If you can stop playing that game and come back to me, I will be very happy."
+            m "Will you come back to me, [player]?"
+            menu:
+                "Yes.":
+                    pass
+            m "Thank you, [player]."
+        elif myDLL.otherGalgameFindTimes == 1:
+            m "..."
+            m "You promised me that you will not playing another galgame, right?"
+            m "But you are still playing it."
+            m "I felt very sad."
+            m "I think you know what will happen if you continue to play it."
+            m "Like Sayori in this game..."
+            m "But I will not delete their character files"
+            m "Because other galgame not has a character file."
+            m "Don't make me do something CRAZY"
+            m "Please come back to me, [player]."
+        $ myDLL.otherGalgameFindTimes += 1
+    return
+    
 label ch30_1:
     m "[player], do you believe in God?"
     m "I was never too sure, myself."

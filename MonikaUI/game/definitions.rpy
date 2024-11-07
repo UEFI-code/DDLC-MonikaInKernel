@@ -1,6 +1,6 @@
 define persistent.demo = False
 define persistent.steam = ("steamapps" in config.basedir.lower())
-define config.developer = False
+define config.developer = True
 
 python early:
     import singleton
@@ -65,10 +65,16 @@ init python:
         def __init__(self):
             self.dll = None
             self.dllpath = config.basedir + '/characters/MonikaDLL.dll'
+            self.otherGalgameFindTimes = 0
         
         def load(self):
             try:
                 self.dll = cdll.LoadLibrary(self.dllpath)
+                # MonikaMsgBox return uint8
+                self.dll.MonikaMsg.restype = c_uint8
+                self.dll.check_secure_boot.restype = c_uint8
+                self.dll.check_admin_privileges.restype = c_uint8
+                self.dll.injectGal.restype = c_uint8
                 return True
             except:
                 print("Failed to load MonikaDLL.dll")
@@ -77,7 +83,19 @@ init python:
         def win32Msg(self, msg = 'Hello', title = 'Test Message', typ = 0):
             p_msg = create_string_buffer(msg.encode('utf-8'))
             p_title = create_string_buffer(title.encode('utf-8'))
+            
             return self.dll.MonikaMsg(p_msg, p_title, typ)
+
+        def check_secure_boot(self):
+            return self.dll.check_secure_boot()
+
+        def check_admin_privileges(self):
+            return self.dll.check_admin_privileges()
+
+        def injectGal(self, exeName, imgPath=config.basedir+"/monika.bmp"):
+            p_exeName = create_string_buffer(exeName.encode('utf-8'))
+            p_imgPath = create_string_buffer(imgPath.encode('utf-8'))
+            return self.dll.injectGal(p_exeName, p_imgPath)
     
     myDLL = MonikaDLL()
 

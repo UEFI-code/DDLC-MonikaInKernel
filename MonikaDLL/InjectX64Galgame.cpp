@@ -248,5 +248,7 @@ __declspec(dllexport) UINT8 injectX64Gal(char *targetEXE, const char *bmp_path)
     
     CloseHandle(hThread);
     CloseHandle(hProcess);
+
+    return 0;
 }
 }

@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script-ch30.rpy", line 933: expected an indented block
+        myDLL.injectGal(galgame)
+         ^
+
+Ren'Py Version: Ren'Py 8.3.2.24090902
+Thu Nov  7 18:43:08 2024
