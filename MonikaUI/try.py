@@ -15,8 +15,18 @@ p_title = create_string_buffer(title)
 print(MonikaDLL.MonikaMsg(p_msg, p_title, typ))
 
 print('Now lets check hijack other x64 process')
+p_bmp_path = create_string_buffer(b'monika.bmp')
 
 target_process = input("Enter target process name: ").encode('utf-8')
 p_target_process = create_string_buffer(target_process)
-p_bmp_path = create_string_buffer(b'monika.bmp')
 MonikaDLL.injectX64Gal(p_target_process, p_bmp_path)
+
+print('Now lets check hijack other x86 process')
+target_process = input("Enter target process name: ").encode('utf-8')
+p_target_process = create_string_buffer(target_process)
+MonikaDLL.injectX86Gal(p_target_process, p_bmp_path)
+
+print('Now lets check smart inject')
+target_process = input("Enter target process name: ").encode('utf-8')
+p_target_process = create_string_buffer(target_process)
+MonikaDLL.injectGal(p_target_process, p_bmp_path)
