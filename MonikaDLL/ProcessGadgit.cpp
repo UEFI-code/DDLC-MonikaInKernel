@@ -130,4 +130,49 @@ HWND GetTargetWindowHandleByPID(DWORD processId)
     return targetHwnd;
 }
 
+// Function to draw an image on a window using GDI
+void DrawImageOnWindow(HWND hwnd, const char* imageFile)
+{
+    // Get the device context (DC) of the target window
+    HDC hdc = GetDC(hwnd);
+    if (!hdc)
+    {
+        printf("Failed to get device context.\n");
+        return;
+    }
+
+    // Create a memory DC to hold the bitmap
+    HDC memDC = CreateCompatibleDC(hdc);
+    if (!memDC)
+    {
+        printf("Failed to create memory DC.\n");
+        ReleaseDC(hwnd, hdc);
+        return;
+    }
+
+    // Load an image from file (use LoadImage for simplicity)
+    HBITMAP hBitmap = (HBITMAP)LoadImageA(NULL, imageFile, IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+    if (!hBitmap)
+    {
+        printf("Failed to load image.\n");
+        ReleaseDC(hwnd, hdc);
+        return;
+    }
+
+    // Get the bitmap dimensions
+    BITMAP bmp_info;
+    GetObject(hBitmap, sizeof(BITMAP), &bmp_info);
+    
+    // Select the bitmap into the memory DC, this will change memDC mapping area to the bmp file content
+    SelectObject(memDC, hBitmap);
+
+    // BitBlt (copy) the image from the memory DC to the window DC
+    BitBlt(hdc, 0, 0, bmp_info.bmWidth, bmp_info.bmHeight, memDC, 0, 0, SRCCOPY);
+    
+    // Clean up
+    DeleteDC(memDC);
+    DeleteObject(hBitmap);
+    ReleaseDC(hwnd, hdc);
+}
+
 }

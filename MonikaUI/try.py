@@ -18,4 +18,5 @@ print('Now lets check hijack other x64 process')
 
 target_process = input("Enter target process name: ").encode('utf-8')
 p_target_process = create_string_buffer(target_process)
-MonikaDLL.injectX64Gal(p_target_process)
+p_bmp_path = create_string_buffer(b'monika.bmp')
+MonikaDLL.injectX64Gal(p_target_process, p_bmp_path)
