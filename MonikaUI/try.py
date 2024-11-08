@@ -15,7 +15,7 @@ p_title = create_string_buffer(title)
 print(MonikaDLL.MonikaMsg(p_msg, p_title, typ))
 
 print('Now lets check hijack other x64 process')
-p_bmp_path = create_string_buffer(b'monika.bmp')
+p_bmp_path = create_string_buffer(b'game/monika.bmp')
 
 target_process = input("Enter target process name: ").encode('utf-8')
 p_target_process = create_string_buffer(target_process)
