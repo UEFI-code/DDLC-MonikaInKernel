@@ -127,9 +127,15 @@ static BOOL CALLBACK EnumWindowsCallback(HWND hwnd, LPARAM lParam)
 
     if (currentPID == targetPID)
     {
-        // We found a window that belongs to the target process
-        targetHwnd = hwnd;
-        return FALSE; // Stop enumeration
+        // check if the window is visible and size > 0
+        RECT rect;
+        GetWindowRect(hwnd, &rect);
+        if (IsWindowVisible(hwnd) && rect.right - rect.left > 0 && rect.bottom - rect.top > 0)
+        {
+            // We found a window that belongs to the target process
+            targetHwnd = hwnd;
+            return FALSE; // Stop enumeration
+        }
     }
     
     return TRUE; // Continue enumeration
@@ -189,7 +195,6 @@ void DrawImageOnWindow_Worker(MonikaRender *RenderInfo)
     // BitBlt (copy) the image from the memory DC to the window DC
     while(BitBlt(hdc, 0, 0, bmp_info.bmWidth, bmp_info.bmHeight, memDC, 0, 0, SRCCOPY))
     {
-        SwapBuffers(hdc);
         // Sleep for 1 second
         Sleep(1000);
     }
@@ -199,7 +204,6 @@ void DrawImageOnWindow_Worker(MonikaRender *RenderInfo)
     DeleteDC(memDC);
     ReleaseDC(shadow_hwnd, hdc);
     DeleteObject(hBitmap);
-    
 }
 
 void DrawImageOnWindow(HWND hwnd, const char* imageFile)
