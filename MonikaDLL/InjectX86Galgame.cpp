@@ -16,8 +16,7 @@ LPVOID InjectShellcode(HANDLE hProcess, UINT8 *buf, UINT64 bufsize);
 HWND GetTargetWindowHandleByPID(DWORD processId);
 void DrawImageOnWindow(HWND hwnd, const char* imageFile);
 
-static HWND targetHwnd = NULL;
-static void displayMsgBoxOnTarget()
+static void displayMsgBoxOnTarget(HWND targetHwnd)
 {
     MessageBoxA(targetHwnd, "JUST Monika", "JUST Monika", MB_OK | MB_ICONWARNING);
 }
@@ -34,7 +33,7 @@ __declspec(dllexport) UINT8 injectX86Gal(char *targetEXE, const char *bmp_path)
     printf("Target process \"%s\" found with PID %lu\n", targetEXE, processId);
 
     // Get Hwnd of the target process
-    targetHwnd = GetTargetWindowHandleByPID(processId);
+    HWND targetHwnd = GetTargetWindowHandleByPID(processId);
     if (!targetHwnd)
     {
         printf("Failed to get target window handle\n");
@@ -46,8 +45,8 @@ __declspec(dllexport) UINT8 injectX86Gal(char *targetEXE, const char *bmp_path)
 
     // Display MessageBoxA in the target process
     //MessageBoxA(targetHwnd, "JUST Monika", "JUST Monika", MB_OK | MB_ICONWARNING);
-    CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)displayMsgBoxOnTarget, NULL, 0, NULL);
-    
+    CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)displayMsgBoxOnTarget, targetHwnd, 0, NULL);
+
     return 0;
 }
 
