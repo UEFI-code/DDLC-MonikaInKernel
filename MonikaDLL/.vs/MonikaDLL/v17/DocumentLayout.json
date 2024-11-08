@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectGalgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:InjectGalgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\ProcessGadgit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:ProcessGadgit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX86Galgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:InjectX86Galgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\USERS\\ADMINISTRATOR\\DDLC-MONIKAINKERNEL\\MONIKADLL\\INJECT.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:INJECT.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX64Galgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:InjectX64Galgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectGalgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:InjectGalgame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\ProcessGadgit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:ProcessGadgit.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|solutionrelative:dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AE2845F2-E06C-49D4-85C0-36A962F50764}|MonikaDLL.vcxproj|C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\KernelWrapper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,11 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Inject.h",
+              "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\Inject.h",
+              "RelativeDocumentMoniker": "Inject.h",
+              "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\Inject.h",
+              "RelativeToolTip": "Inject.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-08T09:02:56.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "InjectGalgame.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectGalgame.cpp",
               "RelativeDocumentMoniker": "InjectGalgame.cpp",
@@ -57,37 +74,40 @@
               "RelativeDocumentMoniker": "InjectX86Galgame.cpp",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX86Galgame.cpp",
               "RelativeToolTip": "InjectX86Galgame.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-07T08:42:54.762Z"
+              "WhenOpened": "2024-11-07T08:42:54.762Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "InjectX64Galgame.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX64Galgame.cpp",
               "RelativeDocumentMoniker": "InjectX64Galgame.cpp",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\InjectX64Galgame.cpp",
               "RelativeToolTip": "InjectX64Galgame.cpp",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAvwLIAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-04T10:35:02.895Z"
+              "WhenOpened": "2024-11-04T10:35:02.895Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ProcessGadgit.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\ProcessGadgit.cpp",
               "RelativeDocumentMoniker": "ProcessGadgit.cpp",
               "ToolTip": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\ProcessGadgit.cpp",
               "RelativeToolTip": "ProcessGadgit.cpp",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAAANkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-04T09:50:11.458Z"
+              "WhenOpened": "2024-11-04T09:50:11.458Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "KernelWrapper.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\KernelWrapper.cpp",
               "RelativeDocumentMoniker": "KernelWrapper.cpp",
@@ -99,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "dllmain.cpp",
               "DocumentMoniker": "C:\\Users\\Administrator\\DDLC-MonikaInKernel\\MonikaDLL\\dllmain.cpp",
               "RelativeDocumentMoniker": "dllmain.cpp",

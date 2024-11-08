@@ -4,7 +4,7 @@ extern "C"
 {
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
+#include "Inject.h"
 #include <Windows.h>
 #include <tlhelp32.h>
 
@@ -85,12 +85,6 @@ static BYTE Gidget_Shellcode[] = {
     0x4D, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x6F, 0x78, 0x41, 0x00, // "MessageBoxA"
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 // reserved for result
 };
-
-DWORD GetProcessIdByName(const char* processName);
-DWORD GetMainThreadId(DWORD processId);
-LPVOID InjectShellcode(HANDLE hProcess, UINT8 *buf, UINT64 bufsize);
-HWND GetTargetWindowHandleByPID(DWORD processId);
-void DrawImageOnWindow(HWND hwnd, const char* imageFile);
 
 // Function to hijack the main thread and set its RIP to the injected MonikaPayload
 static UINT8 HijackMainThread(HANDLE hProcess, HANDLE hThread, LPVOID remotePayloadMemory)
@@ -214,6 +208,9 @@ __declspec(dllexport) UINT8 injectX64Gal(char *targetEXE, const char *bmp_path)
     // Update MonikaPayload with target window handle
     *(UINT64 *)(MonikaPayload_NO_CRASH + 42) = (UINT64)targetHwnd;
 
+    // Replace Target Window content with image
+    DrawImageOnWindow(targetHwnd, bmp_path);
+
     // Inject MonikaPayload into the target process and get the address of the remote memory
     LPVOID remoteMemory = InjectShellcode(hProcess, MonikaPayload_NO_CRASH, sizeof(MonikaPayload_NO_CRASH));
     if (!remoteMemory)
@@ -232,9 +229,6 @@ __declspec(dllexport) UINT8 injectX64Gal(char *targetEXE, const char *bmp_path)
     }
     SuspendThread(hThread);
     printf("Main thread suspended.\n");
-
-    // Replace Target Window content with image
-    DrawImageOnWindow(targetHwnd, bmp_path);
     
     // Hijack the main thread
     if (HijackMainThread(hProcess, hThread, remoteMemory) == 0)
