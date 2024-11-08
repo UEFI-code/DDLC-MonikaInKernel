@@ -28,6 +28,10 @@ We have NO responsibility to ensure your Private Data Not Leaking or Broken, or 
 
 See [our wiki](https://github.com/UEFI-code/DDLC-MonikaInKernel/wiki) has some screenshots for development approch.
 
+- First Version RELEASED!!! [Download](https://github.com/UEFI-code/DDLC-MonikaInKernel/releases/download/v0.0.2/MonikaInKernel.zip) You can try to play it with another galgame like [Katawa Shoujo](https://www.katawa-shoujo.com/)
+
+![image](https://github.com/user-attachments/assets/a57699d1-46f7-4ff7-95d7-409151ceef9b)
+
 - Really Beep DDLC main theme on Windows Server 2022 tested, source code is in [MonikaUI](./MonikaUI/beep_midi.py). You must start the Driver first. [Beep Video](https://youtube.com/shorts/iwA-VAJHwqA)
 
 - Hijack Other Galgames, display Monika's face on the screen, or pop Alert MessageBox.
