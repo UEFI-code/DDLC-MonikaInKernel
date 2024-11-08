@@ -5,16 +5,10 @@ extern "C"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include <Windows.h>
+#include "Inject.h"
 #include <tlhelp32.h>
 
 // x86 (Win32 on Win64) version of the Monika payload is not finished yet...
-
-DWORD GetProcessIdByName(const char* processName);
-DWORD GetMainThreadId(DWORD processId);
-LPVOID InjectShellcode(HANDLE hProcess, UINT8 *buf, UINT64 bufsize);
-HWND GetTargetWindowHandleByPID(DWORD processId);
-void DrawImageOnWindow(HWND hwnd, const char* imageFile);
 
 static void displayMsgBoxOnTarget(HWND targetHwnd)
 {

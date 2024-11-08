@@ -1,7 +1,7 @@
-﻿  InjectX86Galgame.cpp
+﻿  ProcessGadgit.cpp
      Creating library C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\x64\Release\MonikaDLL.lib and object C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\x64\Release\MonikaDLL.exp
   Generating code
-  3 of 24 functions (12.5%) were compiled, the rest were copied from previous compilation.
+  5 of 25 functions (20.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
