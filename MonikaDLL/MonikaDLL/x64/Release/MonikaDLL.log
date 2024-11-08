@@ -1,7 +1,7 @@
 ﻿  ProcessGadgit.cpp
      Creating library C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\x64\Release\MonikaDLL.lib and object C:\Users\Administrator\DDLC-MonikaInKernel\MonikaDLL\x64\Release\MonikaDLL.exp
   Generating code
-  1 of 25 functions ( 4.0%) were compiled, the rest were copied from previous compilation.
+  4 of 25 functions (16.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
