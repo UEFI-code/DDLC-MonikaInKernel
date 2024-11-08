@@ -189,6 +189,7 @@ void DrawImageOnWindow_Worker(MonikaRender *RenderInfo)
     // BitBlt (copy) the image from the memory DC to the window DC
     while(BitBlt(hdc, 0, 0, bmp_info.bmWidth, bmp_info.bmHeight, memDC, 0, 0, SRCCOPY))
     {
+        SwapBuffers(hdc);
         // Sleep for 1 second
         Sleep(1000);
     }
