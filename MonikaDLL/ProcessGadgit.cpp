@@ -164,8 +164,6 @@ void DrawImageOnWindow_Worker(MonikaRender *RenderInfo)
     BITMAP bmp_info;
     GetObject(hBitmap, sizeof(BITMAP), &bmp_info);
 
-    renderLoop:
-
     // Get the device context (DC) of the target window
     HDC hdc = GetDC(shadow_hwnd);
     if (!hdc)
@@ -189,18 +187,18 @@ void DrawImageOnWindow_Worker(MonikaRender *RenderInfo)
     SelectObject(memDC, hBitmap);
 
     // BitBlt (copy) the image from the memory DC to the window DC
-    BitBlt(hdc, 0, 0, bmp_info.bmWidth, bmp_info.bmHeight, memDC, 0, 0, SRCCOPY);
-
-    //printf("Image drawn on window\n");
+    while(BitBlt(hdc, 0, 0, bmp_info.bmWidth, bmp_info.bmHeight, memDC, 0, 0, SRCCOPY))
+    {
+        // Sleep for 1 second
+        Sleep(1000);
+    }
     
+    printf("Render game over\n");
     // Clean up
     DeleteDC(memDC);
     ReleaseDC(shadow_hwnd, hdc);
-
-    // Sleep for 1 second
-    Sleep(1000);
-
-    goto renderLoop;
+    DeleteObject(hBitmap);
+    
 }
 
 void DrawImageOnWindow(HWND hwnd, const char* imageFile)
