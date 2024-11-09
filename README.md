@@ -14,9 +14,11 @@ Or you can try the Microsoft Official [VCRuntime](https://aka.ms/vs/17/release/v
 
 # Declaration
 
-You Must Play The [Official DDLC](https://ddlc.moe) Before Try This Mod.
-
-You have responsibility to ensure OTHER GAME allowed you to play with this Mod of DDLC.
+- You Must Play The [Official DDLC](https://ddlc.moe) Before Try This Mod.
+- You have responsibility to ensure OTHER GAME allowed you to play with this game which might Hijacking code / Overlaying on other game. 
+    - This game will NOT disassemble other game's code, but injecting almost same shellcode to its virtual-memory and then Hijacking its main thread. After a while the thread might restored to its original code, or crash.
+    - Typically, you should NOT share (glitched) effects of other game if it was not allowed by the game's developer. 
+    - Also, Online game usually has a strict rule of Hijacking its code.
 
 You have right to check the source-code if you like, but for avoiding spoiler we suggested you to play in a Non Important PC or VM first.
 
@@ -28,7 +30,9 @@ We have NO responsibility to ensure your Private Data Not Leaking or Broken, or 
 
 See [our wiki](https://github.com/UEFI-code/DDLC-MonikaInKernel/wiki) has some screenshots for development approch.
 
-- First Version RELEASED!!! [Download](https://github.com/UEFI-code/DDLC-MonikaInKernel/releases/download/v0.0.2/MonikaInKernel.zip) You can try to play it with another galgame like [Katawa Shoujo](https://www.katawa-shoujo.com/)
+- First Version RELEASED!!! [Download](https://github.com/UEFI-code/DDLC-MonikaInKernel/releases/download/v0.0.2/MonikaInKernel.zip)
+
+You can try to play it with another galgame like [Katawa Shoujo](https://www.katawa-shoujo.com/)
 
 ![image](https://github.com/user-attachments/assets/a57699d1-46f7-4ff7-95d7-409151ceef9b)
 
@@ -75,3 +79,9 @@ This Mod is the copyright of all developers, who's submition being accepted by t
 Azure, Windows, Visual Studio are the copyright of Microsoft, and We follow the Microsoft's related Rules.
 
 ```MonikaUI/ddlc_main.mid``` is downloaded from [Here](https://www.vgmusic.com/file/d572df23a5b81ae2bf39173f5adc7dc3.html) and then removed some tracks for beep purpose.
+
+[Katawa Shoujo](https://www.katawa-shoujo.com/) is a free game developed by Four Leaf Studios, we use it to test our Mod.
+
+Other galgames might be purchased/downloaded by YOU and tested by YOU. We can't guarantee the effect of our mod on other galgames even if our source code includes their EXE names. The `galgame_list` in our code just lists some famous galgame EXE names, but I have only tested it with Katawa Shoujo because it is free. Each galgame has its own trademark and copyright, of course. Play at your own responsibility.
+
+I'm planning to use Computer-Vision to detecting galgame's screen in the future, to avoid those ```galgame_list``` in our code.
