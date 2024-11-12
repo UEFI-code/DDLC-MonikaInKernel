@@ -1,3 +1,24 @@
+// This file is for learning how kernel draw BSOD Screen only, calling stack and disassembly code exported from WinDbg. Do NOT use this file for any other purpose.
+// Hooking/Extracting Pointer/Data from Kernel Area with undocumented method is not allowed in published project.
+
+// Calling Stack
+HyperVideo!HvdDdiSystemDisplayWrite -> void DxgkddiSystemDisplayWrite([in] PVOID MiniportDeviceContext, [in] PVOID Source, [in] UINT SourceWidth, [in] UINT SourceHeight, [in] UINT SourceStride, [in] UINT PositionX, [in] UINT PositionY)
+dxgkrnl!DpiSystemDisplayWrite+0xd8
+nt!GxpWriteFrameBufferPixels+0x1416e2
+nt!BgpGxDrawRectangle+0x59
+nt!BgpClearScreen+0xec
+nt!BgpFwDisplayBugCheckScreen+0xc4
+nt!KiDisplayBlueScreen+0x245
+
+// Important Function Pointers, Might Be Changed when Windows Kernel Updated... Below is WinServer2022
+mov     rax,qword ptr [dxgkrnl!DpGlobals+0x390]
+RAX -> HvdDdiSystemDisplayWrite
+
+mov     rcx,qword ptr [dxgkrnl!DpGlobals+0x398]
+mov     rcx,qword ptr [rcx+30h]
+RCX -> DisplayContext
+
+############ Old Research Log ############
 nt!BugCheck2
 
 nt!KeEnterKernelDebugger+0x94c (KiDisplayBlueScreen)
