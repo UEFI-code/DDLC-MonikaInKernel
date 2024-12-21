@@ -41,9 +41,15 @@ static BOOL CALLBACK EnumWindowsCallback(HWND hwnd, LPARAM lParam)
 
     if (currentPID == targetPID)
     {
-        // We found a window that belongs to the target process
-        targetHwnd = hwnd;
-        return FALSE; // Stop enumeration
+        // check if the window is visible and size > 0
+        RECT rect;
+        GetWindowRect(hwnd, &rect);
+        if (IsWindowVisible(hwnd) && rect.right - rect.left > 0 && rect.bottom - rect.top > 0)
+        {
+            // We found a window that belongs to the target process
+            targetHwnd = hwnd;
+            return FALSE; // Stop enumeration
+        }
     }
     
     return TRUE; // Continue enumeration
